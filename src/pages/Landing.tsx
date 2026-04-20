@@ -46,9 +46,9 @@ const Landing = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
-              MarketPulse crawl trực tiếp từ các nền tảng tuyển dụng, cung cấp số liệu
-              <span className="text-foreground font-medium"> có nguồn</span> và
-              <span className="text-foreground font-medium"> cập nhật hàng tuần</span> —
+              AI Career Counselor tổng hợp dữ liệu công khai từ các nền tảng tuyển dụng, cung cấp{" "}
+              <span className="text-foreground font-medium">insight aggregate có nguồn tham khảo</span> và{" "}
+              <span className="text-foreground font-medium">cập nhật hàng tuần</span> —
               dành riêng cho cố vấn nghề nghiệp.
             </p>
 
@@ -66,10 +66,10 @@ const Landing = () => {
             {/* Stat strip */}
             <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl">
               {[
-                { value: "7", unit: "ngày", label: "Chu kỳ crawl" },
-                { value: "100%", unit: "", label: "Có trích dẫn" },
+                { value: "7", unit: "ngày", label: "Chu kỳ cập nhật" },
+                { value: "100%", unit: "", label: "Có nguồn tham khảo" },
                 { value: "4+", unit: "", label: "Nền tảng" },
-                { value: "0", unit: "", label: "Gợi ý JD" },
+                { value: "0", unit: "", label: "Gợi ý JD cá nhân" },
               ].map((s) => (
                 <div key={s.label} className="border-l border-border pl-4">
                   <div className="font-display text-2xl font-bold">
@@ -135,10 +135,10 @@ const Landing = () => {
           <motion.div {...fadeUp} className="max-w-2xl mb-12">
             <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">02 — Giải pháp</p>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Pipeline minh bạch. Số liệu có nguồn. Cập nhật hàng tuần.
+              Pipeline minh bạch. Insight aggregate. Cập nhật hàng tuần.
             </h2>
             <p className="text-muted-foreground text-lg">
-              MarketPulse tự động crawl, chuẩn hoá và phân tích — bạn nhận insight kèm trích dẫn.
+              AI Career Counselor tự động tổng hợp, chuẩn hoá và phân tích dữ liệu công khai — bạn nhận insight kèm nguồn tham khảo.
             </p>
           </motion.div>
 
@@ -146,27 +146,27 @@ const Landing = () => {
             {[
               {
                 icon: Database,
-                title: "Crawl trực tiếp các nền tảng tuyển dụng",
-                desc: "TopCV, VietnamWorks, ITviec, LinkedIn... Dữ liệu đến trực tiếp từ tin tuyển dụng thật.",
-                code: "GET /jobs?platform=topcv&week=2026-W16",
+                title: "Tổng hợp dữ liệu công khai",
+                desc: "Theo dõi xu hướng từ TopCV, VietnamWorks, ITviec, LinkedIn — chỉ lưu số liệu aggregate, không lưu nội dung tin tuyển dụng gốc.",
+                code: "aggregate(platform, week)",
               },
               {
                 icon: Clock,
                 title: "Cập nhật hàng tuần",
                 desc: "Mỗi tuần một snapshot mới. So sánh tuần này vs tuần trước, tháng này vs tháng trước.",
-                code: "Δ react_developer = +12.4% w/w",
+                code: "Δ react_demand = +12.4% w/w",
               },
               {
                 icon: Quote,
-                title: "Mỗi con số đều có nguồn",
-                desc: "Click vào citation để xem URL gốc, ngày crawl, và mẫu tin tuyển dụng được dùng.",
-                code: 'cite: ["topcv.vn/job/123", "..."]',
+                title: "Mỗi con số có nguồn tham khảo",
+                desc: "Số liệu kèm nền tảng nguồn và thời điểm tổng hợp, giúp bạn đối chiếu khi cần.",
+                code: 'source: ["topcv", "itviec"] · w16',
               },
               {
                 icon: Workflow,
                 title: "Pipeline minh bạch",
-                desc: "Bạn biết dữ liệu đến từ đâu, được lọc thế nào, và tổng hợp ra sao. Không hộp đen.",
-                code: "crawl → normalize → aggregate",
+                desc: "Bạn biết dữ liệu được tổng hợp thế nào, lọc ra sao, theo bước nào. Không hộp đen.",
+                code: "fetch → normalize → aggregate",
               },
             ].map((f, i) => (
               <motion.div
@@ -208,10 +208,10 @@ const Landing = () => {
                 <span className="font-display font-semibold">Không làm</span>
               </div>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>· Tư vấn nghề nghiệp cho sinh viên</li>
-                <li>· Gợi ý JD phù hợp với từng cá nhân</li>
-                <li>· Chấm điểm CV / khớp ứng viên</li>
-                <li>· Trả lời "nên học gì" mà không có dữ liệu</li>
+                <li>· Tư vấn nghề nghiệp cho từng cá nhân</li>
+                <li>· Gợi ý JD cụ thể / khớp ứng viên</li>
+                <li>· Hiển thị nội dung tin tuyển dụng gốc</li>
+                <li>· Chấm điểm CV / so khớp hồ sơ</li>
               </ul>
             </div>
             <div className="p-6 rounded-xl border border-success/30 bg-success/5">
@@ -220,16 +220,16 @@ const Landing = () => {
                 <span className="font-display font-semibold">Có làm</span>
               </div>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>· Crawl & thống kê nhu cầu kỹ năng</li>
+                <li>· Tổng hợp xu hướng kỹ năng (aggregate)</li>
                 <li>· Theo dõi biến động hàng tuần</li>
-                <li>· Cung cấp citations cho mọi số liệu</li>
+                <li>· Cung cấp nguồn tham khảo cho mọi số liệu</li>
                 <li>· Pipeline minh bạch, có thể audit</li>
               </ul>
             </div>
           </div>
 
           <p className="mt-10 text-base md:text-lg text-muted-foreground italic max-w-2xl mx-auto">
-            "Chúng tôi cung cấp <span className="text-foreground font-medium">dữ liệu thô đã được phân tích</span>
+            "Chúng tôi cung cấp <span className="text-foreground font-medium">insight aggregate đã được phân tích</span>
             {" "}để cố vấn nghề nghiệp ra quyết định — không thay thế quyết định đó."
           </p>
         </motion.div>
@@ -252,7 +252,7 @@ const Landing = () => {
                 <span className="h-2.5 w-2.5 rounded-full bg-accent/60" />
                 <span className="h-2.5 w-2.5 rounded-full bg-success/60" />
               </div>
-              <span className="font-mono text-xs text-muted-foreground ml-2">marketpulse / analyze</span>
+              <span className="font-mono text-xs text-muted-foreground ml-2">ai-career-counselor / analyze</span>
             </div>
 
             <div className="p-6 space-y-5">
@@ -269,18 +269,18 @@ const Landing = () => {
                 <div className="flex-1 space-y-3">
                   <p className="text-sm leading-relaxed">
                     Tuần 16/2026, nhu cầu React Developer tại Hà Nội ghi nhận{" "}
-                    <span className="font-mono font-semibold text-foreground">847 tin tuyển dụng đang mở</span>,{" "}
+                    <span className="font-mono font-semibold text-foreground">~847 tin (aggregate)</span>,{" "}
                     <span className="font-mono text-success">+12.4% so với tuần trước</span>.
                     Mức lương trung vị: <span className="font-mono font-semibold">22–35tr</span>.
                   </p>
                   <div className="flex flex-wrap gap-1.5">
-                    {["topcv.vn", "vietnamworks.com", "itviec.com"].map((s) => (
+                    {["topcv", "vietnamworks", "itviec"].map((s) => (
                       <span key={s} className="text-[11px] font-mono px-2 py-0.5 rounded border border-border bg-secondary/60 text-muted-foreground">
                         ↗ {s}
                       </span>
                     ))}
                     <span className="text-[11px] font-mono px-2 py-0.5 rounded border border-border bg-secondary/60 text-muted-foreground">
-                      crawl: 2026-04-19
+                      tổng hợp: tuần 16/2026
                     </span>
                   </div>
                 </div>

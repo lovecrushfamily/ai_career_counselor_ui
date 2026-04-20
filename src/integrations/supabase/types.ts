@@ -76,6 +76,36 @@ export type Database = {
         }
         Relationships: []
       }
+      message_feedback: {
+        Row: {
+          comment: string | null
+          created_at: string
+          id: string
+          message_id: string
+          rating: number
+          session_id: string
+          user_id: string
+        }
+        Insert: {
+          comment?: string | null
+          created_at?: string
+          id?: string
+          message_id: string
+          rating: number
+          session_id: string
+          user_id: string
+        }
+        Update: {
+          comment?: string | null
+          created_at?: string
+          id?: string
+          message_id?: string
+          rating?: number
+          session_id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -103,6 +133,51 @@ export type Database = {
           theme_preference?: string
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      request_logs: {
+        Row: {
+          completion_tokens: number | null
+          created_at: string
+          error: string | null
+          id: string
+          latency_ms: number | null
+          model: string
+          prompt_tokens: number | null
+          session_id: string | null
+          status_code: number
+          total_tokens: number | null
+          user_agent: string | null
+          user_id: string | null
+        }
+        Insert: {
+          completion_tokens?: number | null
+          created_at?: string
+          error?: string | null
+          id?: string
+          latency_ms?: number | null
+          model: string
+          prompt_tokens?: number | null
+          session_id?: string | null
+          status_code: number
+          total_tokens?: number | null
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          completion_tokens?: number | null
+          created_at?: string
+          error?: string | null
+          id?: string
+          latency_ms?: number | null
+          model?: string
+          prompt_tokens?: number | null
+          session_id?: string | null
+          status_code?: number
+          total_tokens?: number | null
+          user_agent?: string | null
+          user_id?: string | null
         }
         Relationships: []
       }

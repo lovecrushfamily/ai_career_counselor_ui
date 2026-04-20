@@ -52,7 +52,7 @@ export const LiveMarketData = () => {
   const [sourcesOpen, setSourcesOpen] = useState(true);
 
   return (
-    <aside className="hidden xl:flex flex-col rounded-xl border border-border bg-card overflow-hidden">
+    <aside className="hidden xl:flex flex-col rounded-xl border border-border bg-card overflow-hidden min-h-0">
       {/* Header */}
       <div className="px-4 py-3 border-b border-border">
         <div className="flex items-center gap-2">

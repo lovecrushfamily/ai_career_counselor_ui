@@ -245,7 +245,7 @@ const Analyze = () => {
             <Activity className="h-4 w-4 text-primary" />
             <span className="font-display font-semibold">Phân tích thị trường</span>
             <span className="ml-auto text-xs font-mono text-muted-foreground">
-              [mock data — MVP]
+              [demo aggregate — MVP]
             </span>
           </div>
 

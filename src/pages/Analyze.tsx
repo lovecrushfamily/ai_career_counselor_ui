@@ -7,6 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Activity, Plus, Send, Sparkles, Loader2, MessageSquare, Trash2 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { LiveMarketData } from "@/components/LiveMarketData";
 
 interface Msg {
   role: "user" | "assistant";
@@ -202,7 +203,7 @@ const Analyze = () => {
 
   return (
     <div className="container py-6 md:py-8">
-      <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-6 h-[calc(100vh-8rem)]">
+      <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] xl:grid-cols-[240px_1fr_320px] gap-5 h-[calc(100vh-8rem)]">
         {/* Sidebar */}
         <aside className="hidden lg:flex flex-col rounded-xl border border-border bg-card overflow-hidden">
           <div className="p-3 border-b border-border">
@@ -324,6 +325,9 @@ const Analyze = () => {
             </Button>
           </form>
         </section>
+
+        {/* Live Market Data */}
+        <LiveMarketData />
       </div>
     </div>
   );

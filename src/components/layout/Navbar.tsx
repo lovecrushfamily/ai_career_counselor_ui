@@ -35,7 +35,7 @@ export const Navbar = () => {
             <span className="absolute -right-1 -top-1 h-1.5 w-1.5 rounded-full bg-accent animate-pulse-dot" />
           </div>
           <span className="font-display text-lg font-bold tracking-tight">
-            Market<span className="text-primary">Pulse</span>
+            AI <span className="text-primary">Career Counselor</span>
           </span>
         </Link>
 

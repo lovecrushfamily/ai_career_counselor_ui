@@ -9,11 +9,11 @@ export const Footer = () => {
           <Link to="/" className="flex items-center gap-2 mb-3">
             <Activity className="h-5 w-5 text-primary" strokeWidth={2.5} />
             <span className="font-display text-lg font-bold">
-              Market<span className="text-primary">Pulse</span>
+              AI <span className="text-primary">Career Counselor</span>
             </span>
           </Link>
           <p className="text-sm text-muted-foreground max-w-xs">
-            Insight thị trường tuyển dụng có nguồn, cập nhật hàng tuần. Dành cho cố vấn nghề nghiệp.
+            Tổng hợp insight thị trường tuyển dụng cập nhật hàng tuần. Dành cho cố vấn nghề nghiệp.
           </p>
         </div>
         <div>
@@ -27,15 +27,15 @@ export const Footer = () => {
         <div>
           <h4 className="font-display text-sm font-semibold mb-3">Pipeline</h4>
           <ul className="space-y-2 text-sm text-muted-foreground font-mono">
-            <li>↳ Crawler hàng tuần</li>
+            <li>↳ Tổng hợp dữ liệu công khai</li>
             <li>↳ Chuẩn hoá kỹ năng</li>
-            <li>↳ Trích dẫn nguồn</li>
+            <li>↳ Aggregate insight</li>
           </ul>
         </div>
       </div>
       <div className="border-t border-border/60">
         <div className="container py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
-          <span>© {new Date().getFullYear()} MarketPulse. Dữ liệu thị trường, không phải tư vấn nghề nghiệp.</span>
+          <span>© {new Date().getFullYear()} AI Career Counselor. Insight thị trường, không phải tư vấn nghề nghiệp cá nhân.</span>
           <span className="font-mono">v0.1 · MVP</span>
         </div>
       </div>

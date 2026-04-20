@@ -1,5 +1,6 @@
 import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -20,14 +21,62 @@ NGUYÊN TẮC TỐI THƯỢNG:
 
 BỐI CẢNH MVP: Pipeline tổng hợp dữ liệu công khai chưa hoạt động đầy đủ, hãy tạo phản hồi mô phỏng aggregate hợp lý cho VN, luôn gắn nhãn "[demo aggregate — MVP]" ở đầu mỗi câu trả lời chứa số liệu.`;
 
+const MODEL = "google/gemini-3-flash-preview";
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
+  const startedAt = Date.now();
+  const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
+  const SERVICE_ROLE = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+  const adminClient = createClient(SUPABASE_URL, SERVICE_ROLE);
+
+  // Try to identify the caller (best-effort)
+  let userId: string | null = null;
   try {
-    const { messages } = await req.json();
+    const auth = req.headers.get("Authorization") ?? "";
+    const token = auth.replace("Bearer ", "");
+    if (token) {
+      const { data } = await adminClient.auth.getUser(token);
+      userId = data.user?.id ?? null;
+    }
+  } catch (_) { /* ignore */ }
+
+  const userAgent = req.headers.get("user-agent") ?? null;
+  let sessionId: string | null = null;
+
+  const logRequest = async (
+    statusCode: number,
+    error: string | null,
+    extras: { prompt_tokens?: number; completion_tokens?: number; total_tokens?: number } = {}
+  ) => {
+    try {
+      await adminClient.from("request_logs").insert({
+        user_id: userId,
+        session_id: sessionId,
+        model: MODEL,
+        status_code: statusCode,
+        latency_ms: Date.now() - startedAt,
+        prompt_tokens: extras.prompt_tokens ?? null,
+        completion_tokens: extras.completion_tokens ?? null,
+        total_tokens: extras.total_tokens ?? null,
+        error,
+        user_agent: userAgent,
+      });
+    } catch (e) {
+      console.error("log insert failed", e);
+    }
+  };
+
+  try {
+    const body = await req.json();
+    const { messages, session_id } = body ?? {};
+    sessionId = session_id ?? null;
+
     if (!Array.isArray(messages)) {
+      await logRequest(400, "messages must be an array");
       return new Response(JSON.stringify({ error: "messages must be an array" }), {
         status: 400,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -36,6 +85,7 @@ serve(async (req) => {
 
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) {
+      await logRequest(500, "LOVABLE_API_KEY not configured");
       return new Response(JSON.stringify({ error: "LOVABLE_API_KEY is not configured" }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -49,7 +99,7 @@ serve(async (req) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "google/gemini-3-flash-preview",
+        model: MODEL,
         messages: [
           { role: "system", content: SYSTEM_PROMPT },
           ...messages,
@@ -60,12 +110,14 @@ serve(async (req) => {
 
     if (!response.ok) {
       if (response.status === 429) {
+        await logRequest(429, "rate limit");
         return new Response(JSON.stringify({ error: "Đã vượt giới hạn yêu cầu. Vui lòng thử lại sau ít phút." }), {
           status: 429,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
         });
       }
       if (response.status === 402) {
+        await logRequest(402, "out of credits");
         return new Response(JSON.stringify({ error: "Hết credit Lovable AI. Vui lòng nạp thêm trong Settings → Workspace → Usage." }), {
           status: 402,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -73,17 +125,59 @@ serve(async (req) => {
       }
       const t = await response.text();
       console.error("AI gateway error:", response.status, t);
+      await logRequest(response.status, t.slice(0, 500));
       return new Response(JSON.stringify({ error: "AI gateway error" }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
-    return new Response(response.body, {
+    // Tee the stream so we can log usage on completion while still streaming to client.
+    const [clientStream, logStream] = response.body!.tee();
+
+    (async () => {
+      const reader = logStream.getReader();
+      const decoder = new TextDecoder();
+      let buf = "";
+      let usage: any = null;
+      let completionChars = 0;
+      try {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buf += decoder.decode(value, { stream: true });
+          let idx: number;
+          while ((idx = buf.indexOf("\n")) !== -1) {
+            let line = buf.slice(0, idx);
+            buf = buf.slice(idx + 1);
+            if (line.endsWith("\r")) line = line.slice(0, -1);
+            if (!line.startsWith("data: ")) continue;
+            const json = line.slice(6).trim();
+            if (json === "[DONE]") continue;
+            try {
+              const parsed = JSON.parse(json);
+              const delta = parsed.choices?.[0]?.delta?.content;
+              if (typeof delta === "string") completionChars += delta.length;
+              if (parsed.usage) usage = parsed.usage;
+            } catch (_) { /* partial */ }
+          }
+        }
+      } catch (e) {
+        console.error("tee read err", e);
+      }
+      await logRequest(200, null, {
+        prompt_tokens: usage?.prompt_tokens ?? null,
+        completion_tokens: usage?.completion_tokens ?? Math.ceil(completionChars / 4),
+        total_tokens: usage?.total_tokens ?? null,
+      });
+    })();
+
+    return new Response(clientStream, {
       headers: { ...corsHeaders, "Content-Type": "text/event-stream" },
     });
   } catch (e) {
     console.error("chat error:", e);
+    await logRequest(500, e instanceof Error ? e.message : "unknown");
     return new Response(JSON.stringify({ error: e instanceof Error ? e.message : "Unknown error" }), {
       status: 500,
       headers: { ...corsHeaders, "Content-Type": "application/json" },

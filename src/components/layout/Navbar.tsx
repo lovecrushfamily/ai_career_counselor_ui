@@ -1,8 +1,9 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { Activity, Sun, Moon, LogOut, User as UserIcon } from "lucide-react";
+import { Activity, Sun, Moon, LogOut, User as UserIcon, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
 import { useTheme } from "@/hooks/useTheme";
+import { useIsAdmin } from "@/hooks/useIsAdmin";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,6 +15,7 @@ import {
 export const Navbar = () => {
   const { user, signOut } = useAuth();
   const { theme, toggleTheme } = useTheme();
+  const { isAdmin } = useIsAdmin();
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
@@ -43,6 +45,13 @@ export const Navbar = () => {
           <NavLink to="/analyze" className={navLinkClass}>Phân tích</NavLink>
           <NavLink to="/faq" className={navLinkClass}>FAQ</NavLink>
           {user && <NavLink to="/profile" className={navLinkClass}>Hồ sơ</NavLink>}
+          {isAdmin && (
+            <NavLink to="/admin" className={navLinkClass}>
+              <span className="inline-flex items-center gap-1.5">
+                <ShieldCheck className="h-3.5 w-3.5" /> Admin
+              </span>
+            </NavLink>
+          )}
         </nav>
 
         <div className="flex items-center gap-2">

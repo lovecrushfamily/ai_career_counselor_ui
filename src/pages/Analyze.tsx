@@ -202,10 +202,10 @@ const Analyze = () => {
   };
 
   return (
-    <div className="container py-6 md:py-8">
-      <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] xl:grid-cols-[240px_1fr_320px] gap-5 h-[calc(100vh-8rem)]">
+    <div className="h-full p-4 md:p-5">
+      <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] xl:grid-cols-[240px_1fr_320px] gap-4 h-full min-h-0">
         {/* Sidebar */}
-        <aside className="hidden lg:flex flex-col rounded-xl border border-border bg-card overflow-hidden">
+        <aside className="hidden lg:flex flex-col rounded-xl border border-border bg-card overflow-hidden min-h-0">
           <div className="p-3 border-b border-border">
             <Button onClick={newSession} variant="outline" className="w-full justify-start gap-2">
               <Plus className="h-4 w-4" /> Phiên mới
@@ -240,7 +240,7 @@ const Analyze = () => {
         </aside>
 
         {/* Chat */}
-        <section className="flex flex-col rounded-xl border border-border bg-card overflow-hidden">
+        <section className="flex flex-col rounded-xl border border-border bg-card overflow-hidden min-h-0">
           <div className="px-5 py-3 border-b border-border flex items-center gap-2">
             <Activity className="h-4 w-4 text-primary" />
             <span className="font-display font-semibold">Phân tích thị trường</span>

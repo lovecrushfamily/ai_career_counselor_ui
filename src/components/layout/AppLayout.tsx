@@ -9,10 +9,11 @@ import { Footer } from "./Footer";
  * - Các trang khác (faq, profile, 404...): layout thường, scroll cả page bình thường.
  */
 const FULL_SCREEN_ROUTES = ["/analyze", "/admin", "/login"];
+const FOOTER_ROUTES = ["/", "/pricing", "/community", "/faq", "/guide"];
 
 export const AppLayout = () => {
   const { pathname } = useLocation();
-  const showFooter = pathname === "/";
+  const showFooter = FOOTER_ROUTES.includes(pathname);
   const fullScreen = FULL_SCREEN_ROUTES.includes(pathname);
 
   return (

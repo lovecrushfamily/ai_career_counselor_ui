@@ -205,7 +205,7 @@ const Analyze = () => {
     <div className="h-full p-4 md:p-5">
       <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] xl:grid-cols-[240px_1fr_320px] gap-4 h-full min-h-0">
         {/* Sidebar */}
-        <aside className="hidden lg:flex flex-col rounded-xl border border-border bg-card overflow-hidden min-h-0">
+        <aside data-tour="sessions-list" className="hidden lg:flex flex-col rounded-xl border border-border bg-card overflow-hidden min-h-0">
           <div className="p-3 border-b border-border">
             <Button onClick={newSession} variant="outline" className="w-full justify-start gap-2">
               <Plus className="h-4 w-4" /> Phiên mới
@@ -310,6 +310,7 @@ const Analyze = () => {
           </div>
 
           <form
+            data-tour="chat-input"
             onSubmit={(e) => { e.preventDefault(); sendMessage(input); }}
             className="border-t border-border p-3 flex gap-2"
           >

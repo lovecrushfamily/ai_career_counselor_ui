@@ -52,7 +52,7 @@ const Landing = () => {
               dành riêng cho cố vấn nghề nghiệp.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div data-tour="hero-cta" className="flex flex-col sm:flex-row gap-3">
               <Button asChild size="lg" className="bg-gradient-data text-primary-foreground hover:opacity-90 transition-opacity shadow-glow">
                 <Link to="/login">
                   Bắt đầu phân tích <ArrowRight className="ml-1 h-4 w-4" />

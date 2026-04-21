@@ -15,6 +15,8 @@ import Profile from "./pages/Profile";
 import Analyze from "./pages/Analyze";
 import Admin from "./pages/Admin";
 import Guide from "./pages/Guide";
+import Pricing from "./pages/Pricing";
+import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
 import { Walkthrough } from "@/components/Walkthrough";
 
@@ -34,6 +36,8 @@ const App = () => (
                 <Route path="/" element={<Landing />} />
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/guide" element={<Guide />} />
+                <Route path="/pricing" element={<Pricing />} />
+                <Route path="/community" element={<Community />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
                 <Route path="/analyze" element={<ProtectedRoute><Analyze /></ProtectedRoute>} />

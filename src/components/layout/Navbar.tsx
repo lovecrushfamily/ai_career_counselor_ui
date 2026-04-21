@@ -42,8 +42,9 @@ export const Navbar = () => {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          <NavLink to="/analyze" className={navLinkClass}>Phân tích</NavLink>
-          <NavLink to="/faq" className={navLinkClass}>FAQ</NavLink>
+          <NavLink to="/analyze" data-tour="nav-analyze" className={navLinkClass}>Phân tích</NavLink>
+          <NavLink to="/guide" className={navLinkClass}>Hướng dẫn</NavLink>
+          <NavLink to="/faq" data-tour="nav-faq" className={navLinkClass}>FAQ</NavLink>
           {user && <NavLink to="/profile" className={navLinkClass}>Hồ sơ</NavLink>}
           {isAdmin && (
             <NavLink to="/admin" className={navLinkClass}>

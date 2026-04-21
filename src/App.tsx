@@ -14,7 +14,9 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Analyze from "./pages/Analyze";
 import Admin from "./pages/Admin";
+import Guide from "./pages/Guide";
 import NotFound from "./pages/NotFound";
+import { Walkthrough } from "@/components/Walkthrough";
 
 const queryClient = new QueryClient();
 
@@ -26,10 +28,12 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <AuthProvider>
+            <Walkthrough />
             <Routes>
               <Route element={<AppLayout />}>
                 <Route path="/" element={<Landing />} />
                 <Route path="/faq" element={<FAQ />} />
+                <Route path="/guide" element={<Guide />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
                 <Route path="/analyze" element={<ProtectedRoute><Analyze /></ProtectedRoute>} />

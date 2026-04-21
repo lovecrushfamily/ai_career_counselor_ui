@@ -1,5 +1,7 @@
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
+import { logRuntimeOnce } from "./lib/env";
 
+logRuntimeOnce();
 createRoot(document.getElementById("root")!).render(<App />);

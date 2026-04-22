@@ -63,7 +63,7 @@ export const Navbar = () => {
   const isSolutionsActive = pathname === "/";
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/70 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full bg-background/70 backdrop-blur-xl">
       <div className="container flex h-16 items-center">
         {/* Logo - left */}
         <Link to="/" className="flex items-center gap-2.5 group mr-12">
@@ -195,7 +195,7 @@ export const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl">
+        <div className="md:hidden bg-background/95 backdrop-blur-xl">
           <nav className="container py-4 flex flex-col gap-1">
             {[
               { to: "/", label: "Trang chủ" },

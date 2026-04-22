@@ -12,8 +12,10 @@ import {
   CheckCircle2,
   XCircle,
   Sparkles,
+  ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import FAQ from "./FAQ";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -84,7 +86,10 @@ const Landing = () => {
       </section>
 
       {/* PROBLEM */}
-      <section className="container py-20 md:py-28">
+      <section className="relative">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="container py-20 md:py-28">
         <motion.div {...fadeUp} className="max-w-2xl mb-12">
           <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">01 — Vấn đề</p>
           <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -130,8 +135,11 @@ const Landing = () => {
       </section>
 
       {/* SOLUTION */}
-      <section className="border-y border-border bg-secondary/30">
-        <div className="container py-20 md:py-28">
+      <section className="relative">
+        <div className="absolute inset-0 bg-secondary/30" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="container relative py-20 md:py-28">
           <motion.div {...fadeUp} className="max-w-2xl mb-12">
             <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">02 — Giải pháp</p>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -194,8 +202,10 @@ const Landing = () => {
       </section>
 
       {/* ANTI-PITCH */}
-      <section className="container py-20 md:py-28">
-        <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center">
+      <section className="relative">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="container py-20 md:py-28">
+          <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center">
           <p className="font-mono text-xs uppercase tracking-widest text-accent mb-3">03 — Chúng tôi KHÔNG làm gì</p>
           <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-10">
             Định vị rõ ràng để bạn không kỳ vọng nhầm.
@@ -236,8 +246,11 @@ const Landing = () => {
       </section>
 
       {/* DEMO PREVIEW */}
-      <section className="border-t border-border bg-secondary/20">
-        <div className="container py-20 md:py-28">
+      <section className="relative">
+        <div className="absolute inset-0 bg-secondary/20" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="container relative py-20 md:py-28">
           <motion.div {...fadeUp} className="max-w-2xl mb-10">
             <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">04 — Xem qua</p>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -291,23 +304,34 @@ const Landing = () => {
       </section>
 
       {/* FINAL CTA */}
-      <section className="container py-24 md:py-32">
-        <motion.div {...fadeUp} className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-card to-secondary/40 p-10 md:p-16 text-center shadow-elevated">
-          <div className="absolute inset-0 grid-pattern opacity-40 pointer-events-none" />
-          <div className="relative">
-            <h2 className="font-display text-3xl md:text-5xl font-bold tracking-tight mb-4">
-              Sẵn sàng nắm bắt thị trường <span className="text-gradient">theo tuần?</span>
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-8">
-              Đăng ký miễn phí. Bắt đầu phân tích trong 30 giây.
-            </p>
-            <Button asChild size="lg" className="bg-gradient-data text-primary-foreground hover:opacity-90 transition-opacity shadow-glow">
-              <Link to="/login">
-                Tạo tài khoản <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </motion.div>
+      <section className="relative">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="container py-24 md:py-32">
+          <motion.div {...fadeUp} className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-card to-secondary/40 p-10 md:p-16 text-center shadow-elevated">
+            <div className="absolute inset-0 grid-pattern opacity-40 pointer-events-none" />
+            <div className="relative">
+              <h2 className="font-display text-3xl md:text-5xl font-bold tracking-tight mb-4">
+                Sẵn sàng nắm bắt thị trường <span className="text-gradient">theo tuần?</span>
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-8">
+                Đăng ký miễn phí. Bắt đầu phân tích trong 30 giây.
+              </p>
+              <Button asChild size="lg" className="bg-gradient-data text-primary-foreground hover:opacity-90 transition-opacity shadow-glow">
+                <Link to="/login">
+                  Tạo tài khoản <ArrowRight className="ml-1 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ SECTION */}
+      <section className="relative">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="container py-20 md:py-28">
+          <FAQ />
+        </div>
       </section>
     </>
   );

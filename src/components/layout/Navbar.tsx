@@ -64,8 +64,9 @@ export const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/70 backdrop-blur-xl">
-      <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2.5 group">
+      <div className="container flex h-16 items-center">
+        {/* Logo - left */}
+        <Link to="/" className="flex items-center gap-2.5 group mr-12">
           <div className="relative h-8 w-8 rounded-lg bg-gradient-data flex items-center justify-center shadow-glow">
             <Activity className="h-4 w-4 text-primary-foreground" strokeWidth={2.5} />
             <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-accent border-2 border-background animate-pulse-dot" />
@@ -75,7 +76,8 @@ export const Navbar = () => {
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-9">
+        {/* Nav - left aligned */}
+        <nav className="hidden md:flex items-center gap-8 flex-1">
           {/* Solutions dropdown */}
           <HoverCard openDelay={80} closeDelay={120}>
             <HoverCardTrigger asChild>

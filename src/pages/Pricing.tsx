@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Check, Sparkles, ArrowRight } from "lucide-react";
@@ -57,9 +58,9 @@ const tiers = [
   },
 ];
 
-const Pricing = () => {
+const Pricing = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <div className="relative overflow-hidden">
+    <div ref={ref} className="relative overflow-hidden">
       {/* Glow backdrop */}
       <div className="absolute inset-0 bg-mesh pointer-events-none" />
       <div className="glow-orb -top-32 -left-20 h-96 w-96 bg-primary/30" />
@@ -139,6 +140,7 @@ const Pricing = () => {
       </section>
     </div>
   );
-};
+});
+Pricing.displayName = "Pricing";
 
 export default Pricing;

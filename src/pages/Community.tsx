@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { MessageSquare, Globe2, Calendar, ArrowRight, Sparkles } from "lucide-react";
@@ -55,9 +56,9 @@ const voices = [
   },
 ];
 
-const Community = () => {
+const Community = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <div className="relative overflow-hidden">
+    <div ref={ref} className="relative overflow-hidden">
       <div className="absolute inset-0 bg-mesh pointer-events-none" />
       <div className="glow-orb -top-20 right-10 h-96 w-96 bg-primary/25" />
 
@@ -163,6 +164,7 @@ const Community = () => {
       </section>
     </div>
   );
-};
+});
+Community.displayName = "Community";
 
 export default Community;

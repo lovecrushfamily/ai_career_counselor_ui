@@ -14,6 +14,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import FAQ from "./FAQ";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -84,54 +85,61 @@ const Landing = () => {
       </section>
 
       {/* PROBLEM */}
-      <section className="container py-20 md:py-28">
-        <motion.div {...fadeUp} className="max-w-2xl mb-12">
-          <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">01 — Vấn đề</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            Cố vấn nghề nghiệp đang chạy đua với thị trường — bằng tay.
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Nhu cầu kỹ năng dao động nhanh, nhưng dữ liệu để tư vấn lại đến chậm, không nguồn, hoặc đã cũ.
-          </p>
-        </motion.div>
+      <section className="relative">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="container py-20 md:py-28">
+          <motion.div {...fadeUp} className="max-w-2xl mb-12">
+            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">01 — Vấn đề</p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
+              Cố vấn nghề nghiệp đang chạy đua với thị trường — bằng tay.
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Nhu cầu kỹ năng dao động nhanh, nhưng dữ liệu để tư vấn lại đến chậm, không nguồn, hoặc đã cũ.
+            </p>
+          </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-5">
-          {[
-            {
-              icon: Hourglass,
-              title: "Thống kê thủ công mất hàng tuần",
-              desc: "Mở từng nền tảng, đếm tay, ghép Excel. Xong thì thị trường đã đổi.",
-            },
-            {
-              icon: Bot,
-              title: "LLM trả lời nhanh — nhưng không nguồn",
-              desc: "Con số nghe hợp lý, không ai biết đến từ đâu. Không pipeline. Không kiểm chứng.",
-            },
-            {
-              icon: TrendingDown,
-              title: "Insight cũ → tư vấn lệch",
-              desc: "Một kỹ năng có thể tăng hoặc giảm 30% nhu cầu chỉ trong vài tuần. Bạn không thể đợi.",
-            },
-          ].map((p, i) => (
-            <motion.div
-              key={p.title}
-              {...fadeUp}
-              transition={{ duration: 0.6, delay: i * 0.08, ease: [0.32, 0.72, 0, 1] as const }}
-              className="group relative p-6 rounded-xl border border-border bg-card shadow-card hover:border-primary/40 transition-colors"
-            >
-              <div className="h-10 w-10 rounded-lg bg-secondary flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
-                <p.icon className="h-5 w-5 text-foreground/70 group-hover:text-primary transition-colors" />
-              </div>
-              <h3 className="font-display text-lg font-semibold mb-2">{p.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
-            </motion.div>
-          ))}
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              {
+                icon: Hourglass,
+                title: "Thống kê thủ công mất hàng tuần",
+                desc: "Mở từng nền tảng, đếm tay, ghép Excel. Xong thì thị trường đã đổi.",
+              },
+              {
+                icon: Bot,
+                title: "LLM trả lời nhanh — nhưng không nguồn",
+                desc: "Con số nghe hợp lý, không ai biết đến từ đâu. Không pipeline. Không kiểm chứng.",
+              },
+              {
+                icon: TrendingDown,
+                title: "Insight cũ → tư vấn lệch",
+                desc: "Một kỹ năng có thể tăng hoặc giảm 30% nhu cầu chỉ trong vài tuần. Bạn không thể đợi.",
+              },
+            ].map((p, i) => (
+              <motion.div
+                key={p.title}
+                {...fadeUp}
+                transition={{ duration: 0.6, delay: i * 0.08, ease: [0.32, 0.72, 0, 1] as const }}
+                className="group relative p-6 rounded-xl border border-border bg-card shadow-card hover:border-primary/40 transition-colors"
+              >
+                <div className="h-10 w-10 rounded-lg bg-secondary flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
+                  <p.icon className="h-5 w-5 text-foreground/70 group-hover:text-primary transition-colors" />
+                </div>
+                <h3 className="font-display text-lg font-semibold mb-2">{p.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* SOLUTION */}
-      <section className="border-y border-border bg-secondary/30">
-        <div className="container py-20 md:py-28">
+      <section className="relative">
+        <div className="absolute inset-0 bg-secondary/30" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="container relative py-20 md:py-28">
           <motion.div {...fadeUp} className="max-w-2xl mb-12">
             <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">02 — Giải pháp</p>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -194,50 +202,56 @@ const Landing = () => {
       </section>
 
       {/* ANTI-PITCH */}
-      <section className="container py-20 md:py-28">
-        <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center">
-          <p className="font-mono text-xs uppercase tracking-widest text-accent mb-3">03 — Chúng tôi KHÔNG làm gì</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-10">
-            Định vị rõ ràng để bạn không kỳ vọng nhầm.
-          </h2>
+      <section className="relative">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="container py-20 md:py-28">
+          <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center">
+            <p className="font-mono text-xs uppercase tracking-widest text-accent mb-3">03 — Chúng tôi KHÔNG làm gì</p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-10">
+              Định vị rõ ràng để bạn không kỳ vọng nhầm.
+            </h2>
 
-          <div className="grid sm:grid-cols-2 gap-4 text-left">
-            <div className="p-6 rounded-xl border border-destructive/30 bg-destructive/5">
-              <div className="flex items-center gap-2 mb-3">
-                <XCircle className="h-5 w-5 text-destructive" />
-                <span className="font-display font-semibold">Không làm</span>
+            <div className="grid sm:grid-cols-2 gap-4 text-left">
+              <div className="p-6 rounded-xl border border-destructive/30 bg-destructive/5">
+                <div className="flex items-center gap-2 mb-3">
+                  <XCircle className="h-5 w-5 text-destructive" />
+                  <span className="font-display font-semibold">Không làm</span>
+                </div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>· Tư vấn nghề nghiệp cho từng cá nhân</li>
+                  <li>· Gợi ý JD cụ thể / khớp ứng viên</li>
+                  <li>· Hiển thị nội dung tin tuyển dụng gốc</li>
+                  <li>· Chấm điểm CV / so khớp hồ sơ</li>
+                </ul>
               </div>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>· Tư vấn nghề nghiệp cho từng cá nhân</li>
-                <li>· Gợi ý JD cụ thể / khớp ứng viên</li>
-                <li>· Hiển thị nội dung tin tuyển dụng gốc</li>
-                <li>· Chấm điểm CV / so khớp hồ sơ</li>
-              </ul>
-            </div>
-            <div className="p-6 rounded-xl border border-success/30 bg-success/5">
-              <div className="flex items-center gap-2 mb-3">
-                <CheckCircle2 className="h-5 w-5 text-success" />
-                <span className="font-display font-semibold">Có làm</span>
+              <div className="p-6 rounded-xl border border-success/30 bg-success/5">
+                <div className="flex items-center gap-2 mb-3">
+                  <CheckCircle2 className="h-5 w-5 text-success" />
+                  <span className="font-display font-semibold">Có làm</span>
+                </div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>· Tổng hợp xu hướng kỹ năng (aggregate)</li>
+                  <li>· Theo dõi biến động hàng tuần</li>
+                  <li>· Cung cấp nguồn tham khảo cho mọi số liệu</li>
+                  <li>· Pipeline minh bạch, có thể audit</li>
+                </ul>
               </div>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>· Tổng hợp xu hướng kỹ năng (aggregate)</li>
-                <li>· Theo dõi biến động hàng tuần</li>
-                <li>· Cung cấp nguồn tham khảo cho mọi số liệu</li>
-                <li>· Pipeline minh bạch, có thể audit</li>
-              </ul>
             </div>
-          </div>
 
-          <p className="mt-10 text-base md:text-lg text-muted-foreground italic max-w-2xl mx-auto">
-            "Chúng tôi cung cấp <span className="text-foreground font-medium">insight aggregate đã được phân tích</span>
-            {" "}để cố vấn nghề nghiệp ra quyết định — không thay thế quyết định đó."
-          </p>
-        </motion.div>
+            <p className="mt-10 text-base md:text-lg text-muted-foreground italic max-w-2xl mx-auto">
+              "Chúng tôi cung cấp <span className="text-foreground font-medium">insight aggregate đã được phân tích</span>
+              {" "}để cố vấn nghề nghiệp ra quyết định — không thay thế quyết định đó."
+            </p>
+          </motion.div>
+        </div>
       </section>
 
       {/* DEMO PREVIEW */}
-      <section className="border-t border-border bg-secondary/20">
-        <div className="container py-20 md:py-28">
+      <section className="relative">
+        <div className="absolute inset-0 bg-secondary/20" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="container relative py-20 md:py-28">
           <motion.div {...fadeUp} className="max-w-2xl mb-10">
             <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">04 — Xem qua</p>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -291,23 +305,34 @@ const Landing = () => {
       </section>
 
       {/* FINAL CTA */}
-      <section className="container py-24 md:py-32">
-        <motion.div {...fadeUp} className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-card to-secondary/40 p-10 md:p-16 text-center shadow-elevated">
-          <div className="absolute inset-0 grid-pattern opacity-40 pointer-events-none" />
-          <div className="relative">
-            <h2 className="font-display text-3xl md:text-5xl font-bold tracking-tight mb-4">
-              Sẵn sàng nắm bắt thị trường <span className="text-gradient">theo tuần?</span>
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-8">
-              Đăng ký miễn phí. Bắt đầu phân tích trong 30 giây.
-            </p>
-            <Button asChild size="lg" className="bg-gradient-data text-primary-foreground hover:opacity-90 transition-opacity shadow-glow">
-              <Link to="/login">
-                Tạo tài khoản <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </motion.div>
+      <section className="relative">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="container py-24 md:py-32">
+          <motion.div {...fadeUp} className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-card to-secondary/40 p-10 md:p-16 text-center shadow-elevated">
+            <div className="absolute inset-0 grid-pattern opacity-40 pointer-events-none" />
+            <div className="relative">
+              <h2 className="font-display text-3xl md:text-5xl font-bold tracking-tight mb-4">
+                Sẵn sàng nắm bắt thị trường <span className="text-gradient">theo tuần?</span>
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-8">
+                Đăng ký miễn phí. Bắt đầu phân tích trong 30 giây.
+              </p>
+              <Button asChild size="lg" className="bg-gradient-data text-primary-foreground hover:opacity-90 transition-opacity shadow-glow">
+                <Link to="/login">
+                  Tạo tài khoản <ArrowRight className="ml-1 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ SECTION */}
+      <section className="relative">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="container py-20 md:py-28">
+          <FAQ />
+        </div>
       </section>
     </>
   );

@@ -103,7 +103,9 @@ const Community = forwardRef<HTMLDivElement>((_, ref) => {
       </section>
 
       {/* VOICES */}
-      <section className="border-y border-border bg-secondary/20">
+      <section className="relative bg-secondary/20">
+        <div className="pointer-events-none absolute inset-x-10 top-0 h-16 bg-gradient-to-b from-border/18 via-primary/5 to-transparent blur-2xl" />
+        <div className="pointer-events-none absolute inset-x-10 bottom-0 h-16 bg-gradient-to-t from-border/14 via-primary/5 to-transparent blur-2xl" />
         <div className="container py-20 md:py-24">
           <motion.div {...fadeUp} className="max-w-2xl mb-12 text-center mx-auto">
             <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">Voices</p>

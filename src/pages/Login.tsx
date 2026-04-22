@@ -80,7 +80,7 @@ const Login = () => {
           </span>
         </Link>
 
-        <Card className="p-8 shadow-elevated border-border">
+        <Card className="border-border/30 bg-card/78 p-8 shadow-elevated backdrop-blur-xl">
           <div className="mb-6">
             <h1 className="font-display text-2xl font-bold mb-1">
               {mode === "signin" ? "Đăng nhập" : "Tạo tài khoản"}
@@ -115,7 +115,7 @@ const Login = () => {
           </Button>
 
           <div className="relative my-5">
-            <div className="absolute inset-0 flex items-center"><span className="w-full border-t border-border" /></div>
+            <div className="absolute inset-0 flex items-center"><span className="soft-divider" /></div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="bg-card px-3 text-muted-foreground font-mono">hoặc</span>
             </div>

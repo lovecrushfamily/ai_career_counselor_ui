@@ -52,9 +52,9 @@ export const LiveMarketData = () => {
   const [sourcesOpen, setSourcesOpen] = useState(true);
 
   return (
-    <aside data-tour="market-data" className="hidden xl:flex flex-col rounded-xl border border-border bg-card overflow-hidden min-h-0">
+    <aside data-tour="market-data" className="glass-surface hidden xl:flex flex-col rounded-[1.25rem] shadow-card overflow-hidden min-h-0">
       {/* Header */}
-      <div className="px-4 py-3 border-b border-border">
+      <div className="px-4 py-3">
         <div className="flex items-center gap-2">
           <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse-dot" />
           <h3 className="font-display font-semibold text-sm">Live Market Data</h3>
@@ -63,9 +63,12 @@ export const LiveMarketData = () => {
           Tuần 14–20 / 04 / 2026
         </p>
       </div>
+      <div className="px-4">
+        <div className="soft-divider" />
+      </div>
 
       {/* Sources */}
-      <div className="border-b border-border">
+      <div>
         <button
           onClick={() => setSourcesOpen((v) => !v)}
           className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-secondary/40 transition-colors"
@@ -90,19 +93,22 @@ export const LiveMarketData = () => {
           </div>
         )}
       </div>
+      <div className="px-4">
+        <div className="soft-divider" />
+      </div>
 
       {/* Tabs */}
-      <div className="flex border-b border-border">
+      <div className="flex gap-1 px-2 py-2">
         {TABS.map((t) => {
           const active = tab === t.key;
           return (
             <button
               key={t.key}
               onClick={() => setTab(t.key)}
-              className={`flex-1 flex flex-col items-center gap-1 py-2.5 text-[10px] font-mono transition-colors ${
+              className={`flex-1 flex flex-col items-center gap-1 rounded-xl py-2.5 text-[10px] font-mono transition-all ${
                 active
-                  ? "text-primary border-b-2 border-primary -mb-px"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "bg-secondary/80 text-primary shadow-sm"
+                  : "text-muted-foreground hover:bg-secondary/40 hover:text-foreground"
               }`}
             >
               <t.icon className="h-3.5 w-3.5" />
@@ -116,16 +122,16 @@ export const LiveMarketData = () => {
       <div className="flex-1 overflow-y-auto">
         {tab === "skills" && (
           <div>
-            <div className="px-4 py-2.5 border-b border-border bg-secondary/20">
+            <div className="px-4 pt-3 pb-2">
               <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                 Skill Demand · Tuần 14 / 04
               </p>
             </div>
-            <ul className="divide-y divide-border/60">
+            <ul className="space-y-1.5 px-2 pb-2">
               {SKILLS.map((s) => {
                 const positive = s.delta >= 0;
                 return (
-                  <li key={s.name} className="px-4 py-3 hover:bg-secondary/30 transition-colors">
+                  <li key={s.name} className="rounded-xl px-3 py-3 hover:bg-secondary/30 transition-colors">
                     <div className="flex items-start justify-between gap-2">
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2 flex-wrap">
@@ -211,14 +217,17 @@ export const LiveMarketData = () => {
                 </div>
               );
             })}
-            <p className="text-[10px] text-muted-foreground italic pt-2 border-t border-border">
+            <p className="text-[10px] text-muted-foreground italic pt-3">
               Chỉ hiển thị số liệu tổng hợp (aggregate). Không lưu trữ / hiển thị nội dung tin tuyển dụng gốc.
             </p>
           </div>
         )}
       </div>
 
-      <div className="px-4 py-2 border-t border-border bg-secondary/20">
+      <div className="px-4">
+        <div className="soft-divider" />
+      </div>
+      <div className="bg-secondary/15 px-4 py-2 backdrop-blur-sm">
         <p className="text-[10px] font-mono text-muted-foreground">
           [demo data · MVP] · Aggregate-only
         </p>

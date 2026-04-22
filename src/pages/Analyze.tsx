@@ -202,14 +202,17 @@ const Analyze = () => {
   };
 
   return (
-    <div className="h-full p-4 md:p-5">
+    <div className="h-full bg-gradient-to-b from-background via-background to-secondary/10 p-4 md:p-5">
       <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] xl:grid-cols-[240px_1fr_320px] gap-4 h-full min-h-0">
         {/* Sidebar */}
-        <aside data-tour="sessions-list" className="hidden lg:flex flex-col rounded-xl border border-border bg-card overflow-hidden min-h-0">
-          <div className="p-3 border-b border-border">
+        <aside data-tour="sessions-list" className="glass-surface hidden lg:flex flex-col rounded-[1.25rem] shadow-card overflow-hidden min-h-0">
+          <div className="p-3">
             <Button onClick={newSession} variant="outline" className="w-full justify-start gap-2">
               <Plus className="h-4 w-4" /> Phiên mới
             </Button>
+          </div>
+          <div className="px-3">
+            <div className="soft-divider" />
           </div>
           <div className="flex-1 overflow-y-auto p-2 space-y-1">
             {sessions.length === 0 && (
@@ -240,13 +243,16 @@ const Analyze = () => {
         </aside>
 
         {/* Chat */}
-        <section className="flex flex-col rounded-xl border border-border bg-card overflow-hidden min-h-0">
-          <div className="px-5 py-3 border-b border-border flex items-center gap-2">
+        <section className="glass-surface flex flex-col rounded-[1.25rem] shadow-card overflow-hidden min-h-0">
+          <div className="px-5 py-3 flex items-center gap-2">
             <Activity className="h-4 w-4 text-primary" />
             <span className="font-display font-semibold">Phân tích thị trường</span>
             <span className="ml-auto text-xs font-mono text-muted-foreground">
               [demo aggregate — MVP]
             </span>
+          </div>
+          <div className="px-5">
+            <div className="soft-divider" />
           </div>
 
           <div ref={scrollRef} className="flex-1 overflow-y-auto p-5 md:p-8">
@@ -266,7 +272,7 @@ const Analyze = () => {
                     <button
                       key={s}
                       onClick={() => sendMessage(s)}
-                      className="text-left p-4 rounded-lg border border-border bg-background hover:border-primary/50 hover:bg-secondary/40 transition-all text-sm"
+                      className="text-left p-4 rounded-xl border border-border/35 bg-background/65 backdrop-blur-sm hover:border-primary/35 hover:bg-secondary/35 transition-all text-sm"
                     >
                       {s}
                     </button>
@@ -309,10 +315,13 @@ const Analyze = () => {
             )}
           </div>
 
+          <div className="px-3">
+            <div className="soft-divider" />
+          </div>
           <form
             data-tour="chat-input"
             onSubmit={(e) => { e.preventDefault(); sendMessage(input); }}
-            className="border-t border-border p-3 flex gap-2"
+            className="bg-background/30 p-3 backdrop-blur-md flex gap-2"
           >
             <Input
               value={input}

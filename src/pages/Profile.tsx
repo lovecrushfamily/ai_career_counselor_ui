@@ -81,7 +81,7 @@ const Profile = () => {
         <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight">Cài đặt tài khoản</h1>
       </div>
 
-      <Card className="p-6 space-y-5 shadow-card">
+      <Card className="border-border/30 bg-card/78 p-6 space-y-5 shadow-card backdrop-blur-xl">
         <h2 className="font-display text-lg font-semibold">Thông tin cơ bản</h2>
         <div className="space-y-1.5">
           <Label htmlFor="email">Email</Label>
@@ -93,7 +93,7 @@ const Profile = () => {
         </div>
       </Card>
 
-      <Card className="p-6 space-y-5 shadow-card">
+      <Card className="border-border/30 bg-card/78 p-6 space-y-5 shadow-card backdrop-blur-xl">
         <h2 className="font-display text-lg font-semibold">Giao diện</h2>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -107,7 +107,7 @@ const Profile = () => {
         </div>
       </Card>
 
-      <Card className="p-6 space-y-4 shadow-card">
+      <Card className="border-border/30 bg-card/78 p-6 space-y-4 shadow-card backdrop-blur-xl">
         <div className="flex items-center justify-between">
           <h2 className="font-display text-lg font-semibold">Phiên gần đây</h2>
           <Link to="/analyze" className="text-sm text-primary hover:underline">Mở phân tích →</Link>
@@ -115,9 +115,9 @@ const Profile = () => {
         {sessions.length === 0 ? (
           <p className="text-sm text-muted-foreground">Chưa có phiên phân tích nào.</p>
         ) : (
-          <ul className="divide-y divide-border">
+          <ul className="space-y-2">
             {sessions.map((s) => (
-              <li key={s.id} className="py-3 flex items-center gap-3">
+              <li key={s.id} className="flex items-center gap-3 rounded-xl bg-background/45 px-3 py-3 backdrop-blur-sm">
                 <MessageSquare className="h-4 w-4 text-muted-foreground shrink-0" />
                 <span className="flex-1 text-sm truncate">{s.title}</span>
                 <span className="text-xs font-mono text-muted-foreground">

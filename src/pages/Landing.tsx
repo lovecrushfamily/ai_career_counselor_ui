@@ -86,8 +86,8 @@ const Landing = () => {
 
       {/* PROBLEM */}
       <section className="relative">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-10 top-0 h-16 bg-gradient-to-b from-border/18 via-primary/5 to-transparent blur-2xl" />
+        <div className="pointer-events-none absolute inset-x-10 bottom-0 h-16 bg-gradient-to-t from-border/14 via-primary/5 to-transparent blur-2xl" />
         <div className="container py-20 md:py-28">
           <motion.div {...fadeUp} className="max-w-2xl mb-12">
             <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">01 — Vấn đề</p>
@@ -137,8 +137,8 @@ const Landing = () => {
       {/* SOLUTION */}
       <section className="relative">
         <div className="absolute inset-0 bg-secondary/30" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-10 top-0 h-16 bg-gradient-to-b from-border/18 via-primary/5 to-transparent blur-2xl" />
+        <div className="pointer-events-none absolute inset-x-10 bottom-0 h-16 bg-gradient-to-t from-border/14 via-primary/5 to-transparent blur-2xl" />
         <div className="container relative py-20 md:py-28">
           <motion.div {...fadeUp} className="max-w-2xl mb-12">
             <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">02 — Giải pháp</p>
@@ -203,7 +203,7 @@ const Landing = () => {
 
       {/* ANTI-PITCH */}
       <section className="relative">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-10 top-0 h-16 bg-gradient-to-b from-border/18 via-accent/5 to-transparent blur-2xl" />
         <div className="container py-20 md:py-28">
           <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center">
             <p className="font-mono text-xs uppercase tracking-widest text-accent mb-3">03 — Chúng tôi KHÔNG làm gì</p>
@@ -249,8 +249,8 @@ const Landing = () => {
       {/* DEMO PREVIEW */}
       <section className="relative">
         <div className="absolute inset-0 bg-secondary/20" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-10 top-0 h-16 bg-gradient-to-b from-border/18 via-primary/5 to-transparent blur-2xl" />
+        <div className="pointer-events-none absolute inset-x-10 bottom-0 h-16 bg-gradient-to-t from-border/14 via-primary/5 to-transparent blur-2xl" />
         <div className="container relative py-20 md:py-28">
           <motion.div {...fadeUp} className="max-w-2xl mb-10">
             <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">04 — Xem qua</p>
@@ -259,14 +259,17 @@ const Landing = () => {
             </h2>
           </motion.div>
 
-          <motion.div {...fadeUp} className="max-w-3xl rounded-2xl border border-border bg-card shadow-elevated overflow-hidden">
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-secondary/40">
+          <motion.div {...fadeUp} className="max-w-3xl rounded-2xl border border-border/35 bg-card/78 shadow-elevated backdrop-blur-xl overflow-hidden">
+            <div className="flex items-center gap-2 px-4 py-3 bg-secondary/25">
               <div className="flex gap-1.5">
                 <span className="h-2.5 w-2.5 rounded-full bg-destructive/60" />
                 <span className="h-2.5 w-2.5 rounded-full bg-accent/60" />
                 <span className="h-2.5 w-2.5 rounded-full bg-success/60" />
               </div>
               <span className="font-mono text-xs text-muted-foreground ml-2">ai-career-counselor / analyze</span>
+            </div>
+            <div className="px-4">
+              <div className="soft-divider" />
             </div>
 
             <div className="p-6 space-y-5">
@@ -306,7 +309,7 @@ const Landing = () => {
 
       {/* FINAL CTA */}
       <section className="relative">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-10 top-0 h-16 bg-gradient-to-b from-border/18 via-primary/5 to-transparent blur-2xl" />
         <div className="container py-24 md:py-32">
           <motion.div {...fadeUp} className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-card to-secondary/40 p-10 md:p-16 text-center shadow-elevated">
             <div className="absolute inset-0 grid-pattern opacity-40 pointer-events-none" />
@@ -329,7 +332,7 @@ const Landing = () => {
 
       {/* FAQ SECTION */}
       <section className="relative">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-10 top-0 h-16 bg-gradient-to-b from-border/18 via-primary/5 to-transparent blur-2xl" />
         <div className="container py-20 md:py-28">
           <FAQ />
         </div>

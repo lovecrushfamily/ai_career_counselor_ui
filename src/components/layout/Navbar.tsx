@@ -63,8 +63,9 @@ export const Navbar = () => {
   const isSolutionsActive = pathname === "/";
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/70 backdrop-blur-xl">
-      <div className="container flex h-16 items-center">
+    <header className="glass-surface-strong sticky top-0 z-50 isolate w-full rounded-none border-x-0 border-t-0">
+      <div className="pointer-events-none absolute inset-x-6 bottom-0 h-10 bg-gradient-to-b from-border/20 via-primary/5 to-transparent blur-2xl opacity-90" />
+      <div className="container relative flex h-16 items-center">
         {/* Logo - left */}
         <Link to="/" className="flex items-center gap-2.5 group mr-12">
           <div className="relative h-8 w-8 rounded-lg bg-gradient-data flex items-center justify-center shadow-glow">
@@ -92,7 +93,7 @@ export const Navbar = () => {
             <HoverCardContent
               align="start"
               sideOffset={18}
-              className="w-[560px] p-0 border-border/60 bg-background/95 backdrop-blur-xl shadow-elevated rounded-2xl overflow-hidden"
+              className="glass-surface w-[560px] rounded-[1.5rem] p-0 shadow-elevated overflow-hidden"
             >
               <div className="grid grid-cols-2 gap-1 p-3">
                 {SOLUTIONS.map((s) => (
@@ -111,7 +112,10 @@ export const Navbar = () => {
                   </Link>
                 ))}
               </div>
-              <div className="border-t border-border/60 px-4 py-3 flex items-center justify-between bg-secondary/30">
+              <div className="px-4 pt-1">
+                <div className="soft-divider" />
+              </div>
+              <div className="px-4 py-3 flex items-center justify-between bg-secondary/20 backdrop-blur-sm">
                 <span className="text-xs text-muted-foreground">Mỗi insight đều có nguồn tham khảo.</span>
                 <Link to="/faq" className="text-xs font-semibold text-primary hover:underline">
                   Cách hoạt động →
@@ -195,7 +199,10 @@ export const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-xl">
+        <div className="md:hidden bg-background/70 backdrop-blur-2xl">
+          <div className="container pt-1">
+            <div className="soft-divider" />
+          </div>
           <nav className="container py-4 flex flex-col gap-1">
             {[
               { to: "/", label: "Trang chủ" },

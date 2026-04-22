@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
-    <footer className="relative border-t border-border/60 bg-background mt-24 overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+    <footer className="relative bg-background mt-24 overflow-hidden">
+      <div className="pointer-events-none absolute inset-x-8 top-0 h-16 bg-gradient-to-b from-primary/10 via-border/10 to-transparent blur-3xl opacity-90" />
       <div className="container py-14 grid gap-10 md:grid-cols-5">
         <div className="md:col-span-2">
           <Link to="/" className="flex items-center gap-2.5 mb-4">
@@ -59,7 +59,10 @@ export const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="border-t border-border/60">
+      <div className="container">
+        <div className="soft-divider" />
+      </div>
+      <div>
         <div className="container py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
           <span>© {new Date().getFullYear()} AI Career Counselor. Insight thị trường, không phải tư vấn nghề nghiệp cá nhân.</span>
           <span className="font-mono">v0.1 · MVP</span>

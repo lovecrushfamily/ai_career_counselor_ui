@@ -6,6 +6,7 @@ import { toast } from "sonner";
 export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { user, loading } = useAuth();
   const location = useLocation();
+  const intendedPath = `${location.pathname}${location.search}${location.hash}`;
 
   if (loading) {
     return (
@@ -22,7 +23,7 @@ export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
         description: "Tính năng này yêu cầu tài khoản. Đăng nhập miễn phí trong 30 giây.",
       });
     }, 0);
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    return <Navigate to={`/login?next=${encodeURIComponent(intendedPath)}`} state={{ from: location }} replace />;
   }
 
   return <>{children}</>;

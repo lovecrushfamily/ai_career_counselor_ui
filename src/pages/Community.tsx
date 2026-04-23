@@ -176,6 +176,41 @@ const Community = forwardRef<HTMLDivElement>((_, ref) => {
 
       {/* CTA */}
       <section className="container py-20">
+        {/* FAQ */}
+      </section>
+
+      <section className="container relative pb-8">
+        <motion.div {...fadeUp} className="max-w-3xl mx-auto">
+          <div className="mb-10 text-center">
+            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">FAQ</p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-3">
+              Câu hỏi thường gặp
+            </h2>
+            <p className="text-muted-foreground">
+              Mọi thứ bạn cần biết trước khi bắt đầu.
+            </p>
+          </div>
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((f, i) => (
+              <AccordionItem key={i} value={`item-${i}`} className="border-border">
+                <AccordionTrigger className="text-left font-display text-base md:text-lg font-semibold hover:no-underline hover:text-primary transition-colors py-5">
+                  <span className="flex gap-3 items-start">
+                    <span className="font-mono text-xs text-muted-foreground shrink-0 mt-1.5">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    {f.q}
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed pl-9 pb-5">
+                  {f.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </motion.div>
+      </section>
+
+      <section className="container py-20">
         <motion.div
           {...fadeUp}
           className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-card to-secondary/40 p-10 md:p-14 text-center shadow-elevated"

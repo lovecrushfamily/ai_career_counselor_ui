@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { MessageSquare, Globe2, Calendar, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -53,6 +54,41 @@ const voices = [
     role: "Researcher độc lập",
     quote:
       "Pipeline rõ ràng và aggregate-only đúng tinh thần research. Đây là tool đầu tiên mình dám reference trong báo cáo công khai.",
+  },
+];
+
+const faqs = [
+  {
+    q: "AI Career Counselor khác gì so với hỏi ChatGPT về thị trường tuyển dụng?",
+    a: "ChatGPT trả lời dựa trên dữ liệu huấn luyện — bạn không biết con số đến từ đâu, lúc nào, và liệu có còn đúng. AI Career Counselor tổng hợp dữ liệu công khai từ các nền tảng tuyển dụng mỗi tuần, mỗi con số đều kèm nguồn tham khảo và thời điểm cập nhật để bạn có thể đối chiếu.",
+  },
+  {
+    q: "Dữ liệu được tổng hợp từ đâu?",
+    a: "MVP tham chiếu các nguồn công khai như TopCV, VietnamWorks, ITviec, LinkedIn. Chúng tôi chỉ lưu số liệu aggregate (tổng/đếm/biến động theo kỹ năng, theo tuần) — không lưu trữ và không hiển thị nội dung tin tuyển dụng gốc.",
+  },
+  {
+    q: "Tần suất cập nhật như thế nào?",
+    a: "Pipeline chạy hàng tuần (mỗi Chủ Nhật). Bạn luôn thấy snapshot tuần gần nhất, đồng thời so sánh được với 4–12 tuần trước.",
+  },
+  {
+    q: "AI Career Counselor có gợi ý JD cụ thể cho cá nhân không?",
+    a: "Không. Chúng tôi cố ý không làm việc đó. Sản phẩm cung cấp insight aggregate cho cố vấn nghề nghiệp — quyết định tư vấn cá nhân vẫn thuộc về con người.",
+  },
+  {
+    q: "Tôi có thể trích dẫn số liệu trong báo cáo không?",
+    a: "Có. Mỗi câu trả lời đều ghi rõ nền tảng nguồn và tuần tổng hợp. Bạn có thể đưa vào báo cáo / slide như một tài liệu tham khảo.",
+  },
+  {
+    q: "Tại sao không phải real-time mà là hàng tuần?",
+    a: "Cập nhật real-time vừa tốn kém vừa gây nhiễu (tin tuyển dụng được đăng/gỡ liên tục). Chu kỳ tuần đủ nhanh để bắt biến động kỹ năng, đủ ổn định để số liệu có ý nghĩa thống kê.",
+  },
+  {
+    q: "Lovable AI dùng để làm gì trong sản phẩm?",
+    a: "AI giúp bạn truy vấn dataset aggregate bằng ngôn ngữ tự nhiên và tổng hợp insight. AI không phát minh số liệu — mọi con số đều phải có nguồn từ pipeline tổng hợp của chúng tôi.",
+  },
+  {
+    q: "Dữ liệu cá nhân của tôi có an toàn không?",
+    a: "Lịch sử phân tích được lưu riêng cho mỗi tài khoản với Row-Level Security. Chúng tôi không bán dữ liệu, không huấn luyện model trên hội thoại của bạn.",
   },
 ];
 
@@ -139,6 +175,41 @@ const Community = forwardRef<HTMLDivElement>((_, ref) => {
       </section>
 
       {/* CTA */}
+      <section className="container py-20">
+        {/* FAQ */}
+      </section>
+
+      <section className="container relative pb-8">
+        <motion.div {...fadeUp} className="max-w-3xl mx-auto">
+          <div className="mb-10 text-center">
+            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">FAQ</p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-3">
+              Câu hỏi thường gặp
+            </h2>
+            <p className="text-muted-foreground">
+              Mọi thứ bạn cần biết trước khi bắt đầu.
+            </p>
+          </div>
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((f, i) => (
+              <AccordionItem key={i} value={`item-${i}`} className="border-border">
+                <AccordionTrigger className="text-left font-display text-base md:text-lg font-semibold hover:no-underline hover:text-primary transition-colors py-5">
+                  <span className="flex gap-3 items-start">
+                    <span className="font-mono text-xs text-muted-foreground shrink-0 mt-1.5">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    {f.q}
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed pl-9 pb-5">
+                  {f.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </motion.div>
+      </section>
+
       <section className="container py-20">
         <motion.div
           {...fadeUp}

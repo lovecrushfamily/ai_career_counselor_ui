@@ -14,7 +14,6 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import FAQ from "./FAQ";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -327,14 +326,6 @@ const Landing = () => {
               </Button>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* FAQ SECTION */}
-      <section className="relative">
-        <div className="pointer-events-none absolute inset-x-10 top-0 h-16 bg-gradient-to-b from-border/18 via-primary/5 to-transparent blur-2xl" />
-        <div className="container py-20 md:py-28">
-          <FAQ />
         </div>
       </section>
     </>

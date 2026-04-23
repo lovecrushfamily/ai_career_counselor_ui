@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable";
 import { Button } from "@/components/ui/button";
@@ -12,6 +12,7 @@ import { Activity, Loader2, Mail, Lock } from "lucide-react";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { toast } = useToast();
   const { user } = useAuth();
   const [mode, setMode] = useState<"signin" | "signup">("signin");
@@ -19,10 +20,15 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [oauthLoading, setOauthLoading] = useState(false);
+  const nextFromState = (location.state as { from?: { pathname?: string; search?: string; hash?: string } } | null)?.from;
+  const nextFromQuery = new URLSearchParams(location.search).get("next");
+  const nextPath = nextFromQuery || (nextFromState?.pathname
+    ? `${nextFromState.pathname}${nextFromState.search ?? ""}${nextFromState.hash ?? ""}`
+    : "/analyze");
 
   useEffect(() => {
-    if (user) navigate("/analyze", { replace: true });
-  }, [user, navigate]);
+    if (user) navigate(nextPath, { replace: true });
+  }, [user, navigate, nextPath]);
 
   const handleEmailAuth = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,7 +47,7 @@ const Login = () => {
         if (error) throw error;
         toast({ title: "Đăng nhập thành công" });
       }
-      navigate("/analyze", { replace: true });
+      navigate(nextPath, { replace: true });
     } catch (err) {
       toast({
         title: "Có lỗi xảy ra",
@@ -57,9 +63,12 @@ const Login = () => {
     setOauthLoading(true);
     try {
       const result = await lovable.auth.signInWithOAuth("google", {
-        redirect_uri: `${window.location.origin}/analyze`,
+        redirect_uri: `${window.location.origin}/login?next=${encodeURIComponent(nextPath)}`,
       });
       if (result.error) throw result.error;
+      if (!result.redirected) {
+        navigate(nextPath, { replace: true });
+      }
     } catch (err) {
       toast({
         title: "Không đăng nhập được với Google",

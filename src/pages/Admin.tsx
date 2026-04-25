@@ -83,7 +83,7 @@ const Admin = () => {
               Admin · Observability
             </h1>
             <p className="text-sm text-muted-foreground mt-1">
-              Theo dõi hệ thống AI Career Counselor · cập nhật {new Date(stats.generated_at).toLocaleString("vi-VN")}
+              Theo dõi hệ thống AI Career Advisor Assistant · cập nhật {new Date(stats.generated_at).toLocaleString("vi-VN")}
             </p>
           </div>
           <Button variant="outline" size="sm" onClick={load} disabled={loading} className="gap-2">

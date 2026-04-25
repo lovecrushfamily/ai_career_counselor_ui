@@ -17,7 +17,7 @@ const steps = [
   {
     icon: MessageSquare,
     title: "2. Mở trang Phân tích",
-    desc: "Vào /analyze. Đây là giao diện chat full-screen với AI Career Counselor. Bên trái là lịch sử phiên, giữa là khung chat, phải là Live Market Data.",
+    desc: "Vào /analyze. Có 2 tab: Chatbot Agent (chat + cited sources) và Market Dashboard (line chart + KPI + export PDF).",
   },
   {
     icon: Search,
@@ -47,7 +47,7 @@ export default function Guide() {
           Bắt đầu trong 5 phút
         </h1>
         <p className="text-muted-foreground text-lg">
-          Mọi điều bạn cần biết để khai thác AI Career Counselor hiệu quả nhất.
+          Mọi điều bạn cần biết để khai thác AI Career Advisor Assistant hiệu quả nhất.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">

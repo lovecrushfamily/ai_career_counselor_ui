@@ -2,8 +2,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const faqs = [
   {
-    q: "AI Career Counselor khác gì so với hỏi ChatGPT về thị trường tuyển dụng?",
-    a: "ChatGPT trả lời dựa trên dữ liệu huấn luyện — bạn không biết con số đến từ đâu, lúc nào, và liệu có còn đúng. AI Career Counselor tổng hợp dữ liệu công khai từ các nền tảng tuyển dụng mỗi tuần, mỗi con số đều kèm nguồn tham khảo và thời điểm cập nhật để bạn có thể đối chiếu.",
+    q: "AI Career Advisor Assistant khác gì so với hỏi ChatGPT về thị trường tuyển dụng?",
+    a: "ChatGPT trả lời dựa trên dữ liệu huấn luyện — bạn không biết con số đến từ đâu, lúc nào, và liệu có còn đúng. AI Career Advisor Assistant tổng hợp dữ liệu công khai từ các nền tảng tuyển dụng mỗi tuần, mỗi con số đều kèm nguồn tham khảo và thời điểm cập nhật để bạn có thể đối chiếu.",
   },
   {
     q: "Dữ liệu được tổng hợp từ đâu?",
@@ -14,8 +14,8 @@ const faqs = [
     a: "Pipeline chạy hàng tuần (mỗi Chủ Nhật). Bạn luôn thấy snapshot tuần gần nhất, đồng thời so sánh được với 4–12 tuần trước.",
   },
   {
-    q: "AI Career Counselor có gợi ý JD cụ thể cho cá nhân không?",
-    a: "Không. Chúng tôi cố ý không làm việc đó. Sản phẩm cung cấp insight aggregate cho cố vấn nghề nghiệp — quyết định tư vấn cá nhân vẫn thuộc về con người. Việc gợi ý JD cá nhân hoá đòi hỏi nhiều yếu tố ngoài dữ liệu thị trường (sở thích, hoàn cảnh, năng lực) mà chỉ cố vấn mới đánh giá đúng.",
+    q: "AI Career Advisor Assistant có gợi ý JD cụ thể cho cá nhân không?",
+    a: "Không. Chúng tôi cố ý không làm việc đó. Sản phẩm cung cấp insight aggregate cho cố vấn nghề nghiệp — quyết định tư vấn cá nhân vẫn thuộc về con người.",
   },
   {
     q: "Tôi có thể trích dẫn số liệu trong báo cáo không?",
@@ -44,7 +44,7 @@ const FAQ = () => {
           Câu hỏi thường gặp
         </h1>
         <p className="text-muted-foreground text-lg">
-          Mọi thứ bạn cần biết về AI Career Counselor trước khi bắt đầu.
+          Mọi thứ bạn cần biết về AI Career Advisor Assistant trước khi bắt đầu.
         </p>
       </div>
 

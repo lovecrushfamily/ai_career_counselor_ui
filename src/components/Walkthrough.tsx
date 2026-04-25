@@ -75,7 +75,7 @@ const buildDriver = (pathname: string, isAuthed: boolean): Driver => {
             element: '[data-tour="nav-analyze"]',
             popover: {
               title: "Trang Phân tích",
-              description: "Nơi bạn chat với AI Career Counselor.",
+              description: "Nơi bạn chat với AI Career Advisor Assistant — và xem Market Dashboard.",
             },
           },
           {

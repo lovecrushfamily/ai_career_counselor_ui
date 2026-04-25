@@ -46,7 +46,7 @@ const Landing = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
-              AI Career Counselor tổng hợp dữ liệu công khai từ các nền tảng tuyển dụng, cung cấp{" "}
+              AI Career Advisor Assistant tổng hợp dữ liệu công khai từ các nền tảng tuyển dụng, cung cấp{" "}
               <span className="text-foreground font-medium">insight aggregate có nguồn tham khảo</span> và{" "}
               <span className="text-foreground font-medium">cập nhật hàng tuần</span> —
               dành riêng cho cố vấn nghề nghiệp.
@@ -145,7 +145,7 @@ const Landing = () => {
               Pipeline minh bạch. Insight aggregate. Cập nhật hàng tuần.
             </h2>
             <p className="text-muted-foreground text-lg">
-              AI Career Counselor tự động tổng hợp, chuẩn hoá và phân tích dữ liệu công khai — bạn nhận insight kèm nguồn tham khảo.
+              AI Career Advisor Assistant tự động tổng hợp, chuẩn hoá và phân tích dữ liệu công khai — bạn nhận insight kèm nguồn tham khảo.
             </p>
           </motion.div>
 
@@ -265,7 +265,7 @@ const Landing = () => {
                 <span className="h-2.5 w-2.5 rounded-full bg-accent/60" />
                 <span className="h-2.5 w-2.5 rounded-full bg-success/60" />
               </div>
-              <span className="font-mono text-xs text-muted-foreground ml-2">ai-career-counselor / analyze</span>
+              <span className="font-mono text-xs text-muted-foreground ml-2">ai-career-advisor / analyze</span>
             </div>
             <div className="px-4">
               <div className="soft-divider" />

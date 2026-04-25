@@ -1,23 +1,22 @@
-import { Activity, Github, Twitter, MessageSquare } from "lucide-react";
+import { Github, Twitter, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { RobotLogo } from "@/components/brand/RobotLogo";
 
 export const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className="relative bg-background mt-24 overflow-hidden">
       <div className="pointer-events-none absolute inset-x-8 top-0 h-16 bg-gradient-to-b from-primary/10 via-border/10 to-transparent blur-3xl opacity-90" />
       <div className="container py-14 grid gap-10 md:grid-cols-5">
         <div className="md:col-span-2">
           <Link to="/" className="flex items-center gap-2.5 mb-4">
-            <div className="h-8 w-8 rounded-lg bg-gradient-data flex items-center justify-center shadow-glow">
-              <Activity className="h-4 w-4 text-primary-foreground" strokeWidth={2.5} />
-            </div>
+            <RobotLogo />
             <span className="font-display text-base font-bold">
-              AI<span className="text-primary"> Career</span> Counselor
+              AI<span className="text-primary"> Career</span> Advisor
             </span>
           </Link>
-          <p className="text-sm text-muted-foreground max-w-sm leading-relaxed">
-            Tổng hợp insight thị trường tuyển dụng cập nhật hàng tuần. Dành cho cố vấn nghề nghiệp, recruiter và researcher.
-          </p>
+          <p className="text-sm text-muted-foreground max-w-sm leading-relaxed">{t("footer.tagline")}</p>
           <div className="mt-5 flex items-center gap-2">
             {[
               { icon: Github, href: "#" },
@@ -35,27 +34,26 @@ export const Footer = () => {
           </div>
         </div>
         <div>
-          <h4 className="font-display text-sm font-semibold mb-3">Product</h4>
+          <h4 className="font-display text-sm font-semibold mb-3">{t("footer.product")}</h4>
           <ul className="space-y-2.5 text-sm text-muted-foreground">
-            <li><Link to="/pricing" className="hover:text-foreground transition-colors">Pricing</Link></li>
-            <li><Link to="/faq" className="hover:text-foreground transition-colors">FAQ</Link></li>
-            <li><Link to="/guide" className="hover:text-foreground transition-colors">Hướng dẫn</Link></li>
+            <li><Link to="/pricing" className="hover:text-foreground transition-colors">{t("nav.pricing")}</Link></li>
+            <li><Link to="/guide" className="hover:text-foreground transition-colors">{t("footer.guide")}</Link></li>
           </ul>
         </div>
         <div>
-          <h4 className="font-display text-sm font-semibold mb-3">Company</h4>
+          <h4 className="font-display text-sm font-semibold mb-3">{t("footer.company")}</h4>
           <ul className="space-y-2.5 text-sm text-muted-foreground">
-            <li><Link to="/community" className="hover:text-foreground transition-colors">Community</Link></li>
-            <li><a href="#" className="hover:text-foreground transition-colors">Bản tin tuần</a></li>
-            <li><a href="#" className="hover:text-foreground transition-colors">Liên hệ</a></li>
+            <li><Link to="/community" className="hover:text-foreground transition-colors">{t("nav.community")}</Link></li>
+            <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.newsletter")}</a></li>
+            <li><a href="#" className="hover:text-foreground transition-colors">{t("footer.contact")}</a></li>
           </ul>
         </div>
         <div>
-          <h4 className="font-display text-sm font-semibold mb-3">Pipeline</h4>
+          <h4 className="font-display text-sm font-semibold mb-3">{t("footer.pipeline")}</h4>
           <ul className="space-y-2.5 text-xs text-muted-foreground font-mono">
-            <li>↳ Tổng hợp dữ liệu công khai</li>
-            <li>↳ Chuẩn hoá kỹ năng</li>
-            <li>↳ Aggregate insight</li>
+            <li>↳ {t("footer.p1")}</li>
+            <li>↳ {t("footer.p2")}</li>
+            <li>↳ {t("footer.p3")}</li>
           </ul>
         </div>
       </div>
@@ -64,7 +62,7 @@ export const Footer = () => {
       </div>
       <div>
         <div className="container py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
-          <span>© {new Date().getFullYear()} AI Career Counselor. Insight thị trường, không phải tư vấn nghề nghiệp cá nhân.</span>
+          <span>© {new Date().getFullYear()} AI Career Advisor Assistant. {t("footer.rights")}</span>
           <span className="font-mono">v0.1 · MVP</span>
         </div>
       </div>

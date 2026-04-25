@@ -72,7 +72,7 @@ export const logRuntimeOnce = () => {
       : "background:#10b981;color:#fff;padding:2px 6px;border-radius:3px;font-weight:bold";
   // eslint-disable-next-line no-console
   console.log(
-    `${tag} AI Career Counselor`,
+    `${tag} AI Career Advisor Assistant`,
     style,
     `\n  host:    ${env.hostname}\n  backend: ${env.supabaseUrl || "(unset)"}\n  mode:    ${import.meta.env.MODE}`
   );

@@ -1,6 +1,6 @@
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
-  Activity,
   Sun,
   Moon,
   LogOut,
@@ -20,6 +20,8 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
 import { useTheme } from "@/hooks/useTheme";
 import { useIsAdmin } from "@/hooks/useIsAdmin";
+import { LanguageToggle } from "@/components/LanguageToggle";
+import { RobotLogo } from "@/components/brand/RobotLogo";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -34,16 +36,8 @@ import {
 } from "@/components/ui/hover-card";
 import { useState } from "react";
 
-const SOLUTIONS = [
-  { icon: Users2, title: "Cố vấn nghề nghiệp", desc: "Insight aggregate theo tuần.", to: "/" },
-  { icon: GraduationCap, title: "Trường & Đại học", desc: "Định hướng dựa trên dữ liệu.", to: "/" },
-  { icon: Building2, title: "HR & Talent team", desc: "So sánh xu hướng kỹ năng.", to: "/" },
-  { icon: Briefcase, title: "Recruiter", desc: "Theo dõi biến động nhu cầu.", to: "/" },
-  { icon: LineChart, title: "Researcher", desc: "Số liệu có nguồn tham khảo.", to: "/" },
-  { icon: Sparkles, title: "Cá nhân", desc: "Hiểu thị trường trước khi học.", to: "/" },
-];
-
 export const Navbar = () => {
+  const { t } = useTranslation();
   const { user, signOut } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const { isAdmin } = useIsAdmin();
@@ -62,18 +56,24 @@ export const Navbar = () => {
 
   const isSolutionsActive = pathname === "/";
 
+  const SOLUTIONS = [
+    { icon: Users2, title: t("nav.solutions"), desc: "Insight aggregate", to: "/" },
+    { icon: GraduationCap, title: "Schools", desc: "Data-driven guidance", to: "/" },
+    { icon: Building2, title: "HR & Talent", desc: "Skill trend benchmarks", to: "/" },
+    { icon: Briefcase, title: "Recruiter", desc: "Demand shifts tracking", to: "/" },
+    { icon: LineChart, title: "Researcher", desc: "Cited aggregate data", to: "/" },
+    { icon: Sparkles, title: "Individual", desc: "Understand before learning", to: "/" },
+  ];
+
   return (
     <header className="glass-surface-strong sticky top-0 z-50 isolate w-full rounded-none border-x-0 border-t-0">
       <div className="pointer-events-none absolute inset-x-6 bottom-0 h-10 bg-gradient-to-b from-border/20 via-primary/5 to-transparent blur-2xl opacity-90" />
       <div className="container relative flex h-16 items-center">
         {/* Logo - left */}
         <Link to="/" className="flex items-center gap-2.5 group mr-12">
-          <div className="relative h-8 w-8 rounded-lg bg-gradient-data flex items-center justify-center shadow-glow">
-            <Activity className="h-4 w-4 text-primary-foreground" strokeWidth={2.5} />
-            <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-accent border-2 border-background animate-pulse-dot" />
-          </div>
-          <span className="font-display text-base font-bold tracking-tight">
-            AI<span className="text-primary"> Career</span> Counselor
+          <RobotLogo />
+          <span className="font-display text-base font-bold tracking-tight whitespace-nowrap">
+            AI<span className="text-primary"> Career</span> Advisor
           </span>
         </Link>
 
@@ -124,24 +124,24 @@ export const Navbar = () => {
             </HoverCardContent>
           </HoverCard>
 
-          <NavLink to="/pricing" className={navLinkClass}>Pricing</NavLink>
-          <NavLink to="/community" className={navLinkClass}>Community</NavLink>
-          <NavLink to="/faq" data-tour="nav-faq" className={navLinkClass}>FAQ</NavLink>
+          <NavLink to="/pricing" className={navLinkClass}>{t("nav.pricing")}</NavLink>
+          <NavLink to="/community" className={navLinkClass}>{t("nav.community")}</NavLink>
           {user && (
             <NavLink to="/analyze" data-tour="nav-analyze" className={navLinkClass}>
-              Phân tích
+              {t("nav.analyze")}
             </NavLink>
           )}
           {isAdmin && (
             <NavLink to="/admin" className={navLinkClass}>
               <span className="inline-flex items-center gap-1.5">
-                <ShieldCheck className="h-3.5 w-3.5" /> Admin
+                <ShieldCheck className="h-3.5 w-3.5" /> {t("nav.admin")}
               </span>
             </NavLink>
           )}
         </nav>
 
         <div className="flex items-center gap-2">
+          <LanguageToggle />
           <Button variant="ghost" size="icon" onClick={toggleTheme} aria-label="Chuyển giao diện" className="hidden sm:inline-flex">
             {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
@@ -158,28 +158,28 @@ export const Navbar = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">
                 <DropdownMenuItem onClick={() => navigate("/analyze")}>
-                  <Sparkles className="mr-2 h-4 w-4" /> Phân tích
+                  <Sparkles className="mr-2 h-4 w-4" /> {t("nav.analyze")}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => navigate("/profile")}>
-                  <UserIcon className="mr-2 h-4 w-4" /> Hồ sơ
+                  <UserIcon className="mr-2 h-4 w-4" /> {t("nav.profile")}
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleSignOut} className="text-destructive">
-                  <LogOut className="mr-2 h-4 w-4" /> Đăng xuất
+                  <LogOut className="mr-2 h-4 w-4" /> {t("nav.signOut")}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
             <>
               <Button variant="ghost" size="sm" onClick={() => navigate("/login")} className="hidden sm:inline-flex">
-                Log in
+                {t("nav.login")}
               </Button>
               <Button
                 size="sm"
                 onClick={() => navigate("/login")}
                 className="bg-gradient-data text-primary-foreground hover:shadow-glow hover:opacity-95 transition-all"
               >
-                Get started
+                {t("nav.getStarted")}
               </Button>
             </>
           )}
@@ -205,12 +205,11 @@ export const Navbar = () => {
           </div>
           <nav className="container py-4 flex flex-col gap-1">
             {[
-              { to: "/", label: "Trang chủ" },
-              { to: "/pricing", label: "Pricing" },
-              { to: "/community", label: "Community" },
-              { to: "/faq", label: "FAQ" },
-              ...(user ? [{ to: "/analyze", label: "Phân tích" }] : []),
-              ...(isAdmin ? [{ to: "/admin", label: "Admin" }] : []),
+              { to: "/", label: t("nav.home") },
+              { to: "/pricing", label: t("nav.pricing") },
+              { to: "/community", label: t("nav.community") },
+              ...(user ? [{ to: "/analyze", label: t("nav.analyze") }] : []),
+              ...(isAdmin ? [{ to: "/admin", label: t("nav.admin") }] : []),
             ].map((l) => (
               <NavLink
                 key={l.to}

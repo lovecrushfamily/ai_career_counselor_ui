@@ -14,39 +14,6 @@ export type Database = {
   }
   public: {
     Tables: {
-      advisor_network: {
-        Row: {
-          company_name: string
-          created_at: string
-          id: string
-          industry: string | null
-          note: string | null
-          relationship: Database["public"]["Enums"]["advisor_relationship"]
-          updated_at: string
-          user_id: string
-        }
-        Insert: {
-          company_name: string
-          created_at?: string
-          id?: string
-          industry?: string | null
-          note?: string | null
-          relationship?: Database["public"]["Enums"]["advisor_relationship"]
-          updated_at?: string
-          user_id: string
-        }
-        Update: {
-          company_name?: string
-          created_at?: string
-          id?: string
-          industry?: string | null
-          note?: string | null
-          relationship?: Database["public"]["Enums"]["advisor_relationship"]
-          updated_at?: string
-          user_id?: string
-        }
-        Relationships: []
-      }
       chat_messages: {
         Row: {
           citations: Json | null
@@ -222,11 +189,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      advisor_relationship:
-        | "partner"
-        | "preferred_employer"
-        | "personal_contact"
-        | "alumni_network"
+      [_ in never]: never
     }
     CompositeTypes: {
       [_ in never]: never
@@ -353,13 +316,6 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {
-      advisor_relationship: [
-        "partner",
-        "preferred_employer",
-        "personal_contact",
-        "alumni_network",
-      ],
-    },
+    Enums: {},
   },
 } as const

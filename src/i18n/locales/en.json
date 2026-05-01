@@ -108,33 +108,5 @@
     "delete": "Delete",
     "open": "Open",
     "close": "Close"
-  },
-  "network": {
-    "title": "My Network",
-    "subtitle": "Companies you partner with or have a personal connection to.",
-    "customize": "Customize My Network",
-    "empty": "You haven't pinned any companies yet.",
-    "startPinning": "Pin your first company",
-    "drawerTitle": "Customize My Network",
-    "drawerDesc": "Pin trusted companies, set the relationship type, and add private notes — only you can see this.",
-    "addCustom": "Add a company manually",
-    "customPlaceholder": "Company name (e.g. Acme Corp)",
-    "add": "Add",
-    "myPinned": "My pinned companies",
-    "browseMarket": "Browse market companies",
-    "searchPlaceholder": "Search companies...",
-    "pin": "Pin",
-    "unpin": "Unpin",
-    "edit": "Edit",
-    "notePlaceholder": "Private note (e.g. Internal contact: Nguyen Van A, partnership since 2024)",
-    "showMyFirst": "Show My Network First",
-    "personalizedView": "Personalized view",
-    "inMyNetwork": "In your network",
-    "rel": {
-      "partner": "Partner",
-      "preferred_employer": "Preferred Employer",
-      "personal_contact": "Personal Contact",
-      "alumni_network": "Alumni Network"
-    }
   }
 }

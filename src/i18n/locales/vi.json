@@ -108,5 +108,33 @@
     "delete": "Xoá",
     "open": "Mở",
     "close": "Đóng"
+  },
+  "network": {
+    "title": "Công ty đối tác của tôi",
+    "subtitle": "Các công ty bạn có quan hệ đối tác hoặc kết nối cá nhân.",
+    "customize": "Tuỳ chỉnh Network",
+    "empty": "Bạn chưa ghim công ty nào.",
+    "startPinning": "Ghim công ty đầu tiên",
+    "drawerTitle": "Tuỳ chỉnh Công ty đối tác",
+    "drawerDesc": "Ghim các công ty uy tín, chọn loại quan hệ và ghi chú riêng — chỉ bạn nhìn thấy.",
+    "addCustom": "Thêm công ty thủ công",
+    "customPlaceholder": "Tên công ty (vd: Acme Corp)",
+    "add": "Thêm",
+    "myPinned": "Công ty đã ghim",
+    "browseMarket": "Duyệt công ty trong thị trường",
+    "searchPlaceholder": "Tìm công ty...",
+    "pin": "Ghim",
+    "unpin": "Bỏ ghim",
+    "edit": "Sửa",
+    "notePlaceholder": "Ghi chú riêng (vd: Liên hệ nội bộ: Nguyễn Văn A, đối tác từ 2024)",
+    "showMyFirst": "Ưu tiên Network của tôi",
+    "personalizedView": "Chế độ cá nhân hoá",
+    "inMyNetwork": "Trong network của bạn",
+    "rel": {
+      "partner": "Đối tác",
+      "preferred_employer": "Nhà tuyển dụng ưu tiên",
+      "personal_contact": "Liên hệ cá nhân",
+      "alumni_network": "Mạng cựu sinh viên"
+    }
   }
 }

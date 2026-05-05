@@ -60,23 +60,10 @@ const Login = () => {
   };
 
   const handleGoogle = async () => {
+    // Auth bypass enabled — skip Google OAuth and proceed directly
     setOauthLoading(true);
-    try {
-      const result = await lovable.auth.signInWithOAuth("google", {
-        redirect_uri: `${window.location.origin}/login?next=${encodeURIComponent(nextPath)}`,
-      });
-      if (result.error) throw result.error;
-      if (!result.redirected) {
-        navigate(nextPath, { replace: true });
-      }
-    } catch (err) {
-      toast({
-        title: "Không đăng nhập được với Google",
-        description: err instanceof Error ? err.message : "Vui lòng thử lại",
-        variant: "destructive",
-      });
-      setOauthLoading(false);
-    }
+    toast({ title: "Đăng nhập (bypass)", description: "Bỏ qua Google OAuth." });
+    navigate(nextPath, { replace: true });
   };
 
   return (

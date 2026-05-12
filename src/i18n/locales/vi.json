@@ -69,7 +69,6 @@
     "emptyTitle": "Hỏi về thị trường tuyển dụng",
     "emptyDesc": "Mọi câu trả lời sẽ kèm trích dẫn nguồn và thời điểm crawl.",
     "placeholder": "Hỏi về nhu cầu kỹ năng, mức lương, biến động tuần...",
-    "demo": "[demo aggregate — MVP]",
     "thinking": "Đang suy luận",
     "sources": "Nguồn trích dẫn",
     "noSources": "Chưa có nguồn nào. Hỏi 1 câu để xem trích dẫn.",
@@ -94,7 +93,7 @@
       "topField": "Lĩnh vực dẫn đầu"
     },
     "platforms": "Nền tảng tuyển dụng",
-    "companies": "Top công ty uy tín",
+    "companies": "Top công ty đã xác thực",
     "industries": "Lĩnh vực / Ngành",
     "vs": "vs kỳ trước",
     "share": "Thị phần"

@@ -210,7 +210,6 @@ export const ChatbotPanel = () => {
         <div className="px-5 py-3 flex items-center gap-2">
           <Activity className="h-4 w-4 text-primary" />
           <span className="font-display font-semibold">{t("analyze.title")}</span>
-          <span className="ml-auto text-xs font-mono text-muted-foreground">{t("analyze.demo")}</span>
         </div>
         <div className="px-5"><div className="soft-divider" /></div>
 

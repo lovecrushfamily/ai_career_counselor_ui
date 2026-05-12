@@ -245,6 +245,121 @@ const Landing = () => {
         </div>
       </section>
 
+      {/* WEEKLY CRAWL & CITATIONS */}
+      <section className="relative">
+        <div className="absolute inset-0 bg-secondary/20" />
+        <div className="pointer-events-none absolute inset-x-10 top-0 h-16 bg-gradient-to-b from-border/18 via-primary/5 to-transparent blur-2xl" />
+        <div className="pointer-events-none absolute inset-x-10 bottom-0 h-16 bg-gradient-to-t from-border/14 via-primary/5 to-transparent blur-2xl" />
+        <div className="container relative py-20 md:py-28">
+          <motion.div {...fadeUp} className="max-w-2xl mb-12">
+            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">04 — Pipeline minh bạch</p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
+              Crawl hàng tuần. Mọi con số đều có <span className="text-gradient">nguồn tham khảo.</span>
+            </h2>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              Pipeline tổng hợp dữ liệu công khai từ thị trường tuyển dụng Việt Nam, chạy theo lịch cố định và đính kèm trích dẫn nguồn cho từng insight aggregate.
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-5">
+            {/* Weekly crawl card */}
+            <motion.div {...fadeUp} className="rounded-2xl border border-border/40 bg-card/80 backdrop-blur-xl p-6 md:p-8 shadow-card">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="h-9 w-9 rounded-lg bg-gradient-data flex items-center justify-center">
+                  <Clock className="h-4 w-4 text-primary-foreground" />
+                </div>
+                <span className="font-display font-semibold">Chu kỳ crawl hàng tuần</span>
+                <span className="ml-auto inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-success/30 bg-success/10 text-[11px] font-mono text-success">
+                  <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse-dot" />
+                  Live
+                </span>
+              </div>
+
+              <ul className="space-y-3 text-sm">
+                {[
+                  { label: "Quét nguồn", val: "Thứ Hai · 02:00 ICT", note: "TopCV · VietnamWorks · ITviec · LinkedIn VN · Glints" },
+                  { label: "Chuẩn hoá & dedup", val: "~2–4 giờ", note: "Loại trùng JD, chuẩn hoá kỹ năng & chức danh" },
+                  { label: "Tổng hợp aggregate", val: "Thứ Hai · 08:00 ICT", note: "Counts, deltas, share — không lưu JD gốc" },
+                  { label: "Phát hành", val: "Thứ Hai · 09:00 ICT", note: "Cập nhật dashboard & chatbot toàn hệ thống" },
+                ].map((step, i) => (
+                  <li key={step.label} className="flex gap-3">
+                    <span className="font-mono text-xs text-muted-foreground shrink-0 w-5 pt-0.5">{String(i + 1).padStart(2, "0")}</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-baseline gap-x-2">
+                        <span className="font-medium">{step.label}</span>
+                        <span className="font-mono text-xs text-primary">{step.val}</span>
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-0.5">{step.note}</div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-5 pt-4 border-t border-border/40 flex items-center justify-between text-xs font-mono text-muted-foreground">
+                <span>Lần phát hành gần nhất</span>
+                <span className="text-foreground">Tuần 19/2026 · 09:04 ICT</span>
+              </div>
+            </motion.div>
+
+            {/* Source citations card */}
+            <motion.div {...fadeUp} className="rounded-2xl border border-border/40 bg-card/80 backdrop-blur-xl p-6 md:p-8 shadow-card">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="h-9 w-9 rounded-lg bg-accent/15 border border-accent/30 flex items-center justify-center">
+                  <Quote className="h-4 w-4 text-accent" />
+                </div>
+                <span className="font-display font-semibold">Trích dẫn nguồn</span>
+                <span className="ml-auto text-[11px] font-mono text-muted-foreground">100% có nguồn</span>
+              </div>
+
+              <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
+                Mỗi câu trả lời đính kèm danh sách nền tảng + tuần tổng hợp. Không URL JD cụ thể, không trích nguyên văn mô tả công việc.
+              </p>
+
+              {/* Sample citation */}
+              <div className="rounded-xl border border-border/50 bg-secondary/25 p-4">
+                <p className="text-sm leading-relaxed mb-3">
+                  Nhu cầu <span className="font-mono font-semibold text-foreground">React Developer</span> tại Hà Nội tuần này:{" "}
+                  <span className="font-mono font-semibold">~847 tin</span>{" "}
+                  <span className="font-mono text-success">(+12.4%)</span>.
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {[
+                    { src: "topcv", n: 312 },
+                    { src: "vietnamworks", n: 224 },
+                    { src: "itviec", n: 186 },
+                    { src: "linkedin-vn", n: 125 },
+                  ].map((s) => (
+                    <span key={s.src} className="inline-flex items-center gap-1.5 text-[11px] font-mono px-2 py-0.5 rounded border border-border bg-card text-muted-foreground">
+                      <Database className="h-3 w-3 text-primary" />
+                      {s.src}
+                      <span className="text-foreground">· {s.n}</span>
+                    </span>
+                  ))}
+                  <span className="inline-flex items-center text-[11px] font-mono px-2 py-0.5 rounded border border-primary/30 bg-primary/10 text-primary">
+                    tổng hợp · tuần 19/2026
+                  </span>
+                </div>
+              </div>
+
+              <div className="mt-5 grid grid-cols-3 gap-3 text-center">
+                <div className="rounded-lg border border-border/40 bg-secondary/15 p-3">
+                  <div className="font-display text-lg font-bold">5</div>
+                  <div className="text-[10px] text-muted-foreground mt-0.5">Nền tảng nguồn</div>
+                </div>
+                <div className="rounded-lg border border-border/40 bg-secondary/15 p-3">
+                  <div className="font-display text-lg font-bold">~38k</div>
+                  <div className="text-[10px] text-muted-foreground mt-0.5">JD aggregate / tuần</div>
+                </div>
+                <div className="rounded-lg border border-border/40 bg-secondary/15 p-3">
+                  <div className="font-display text-lg font-bold">0</div>
+                  <div className="text-[10px] text-muted-foreground mt-0.5">JD gốc lưu trữ</div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="relative">
         <div className="pointer-events-none absolute inset-x-10 top-0 h-16 bg-gradient-to-b from-border/18 via-primary/5 to-transparent blur-2xl" />

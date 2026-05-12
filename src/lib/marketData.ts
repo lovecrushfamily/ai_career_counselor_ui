@@ -80,17 +80,29 @@ const buildTrend = (range: RangeKey): { trend: SeriesPoint[]; keys: string[] } =
   const growth: Record<string, number> = {
     "React/Next": 1.04,
     "Python": 1.05,
-    "ML/AI": 1.18,
+    "ML/AI": 1.22,
     "Data Eng": 1.09,
     "DevOps": 1.06,
+  };
+  // Biên độ nhiễu lớn hơn để biểu đồ biến động rõ rệt; thêm shock theo chu kỳ.
+  const volatility: Record<string, number> = {
+    "React/Next": 28,
+    "Python": 24,
+    "ML/AI": 34,
+    "Data Eng": 22,
+    "DevOps": 20,
   };
   const trend: SeriesPoint[] = [];
   for (let i = 0; i < cfg.points; i++) {
     const point: SeriesPoint = { label: cfg.labelFn(i, cfg.points) };
     for (const k of SKILL_KEYS) {
-      const noise = (rand() - 0.5) * 8;
-      baseline[k] = baseline[k] * (1 + (growth[k] - 1) / cfg.points) + noise;
-      point[k] = Math.max(20, Math.round(baseline[k]));
+      const noise = (rand() - 0.5) * volatility[k];
+      // dao động sin mô phỏng mùa vụ tuyển dụng
+      const wave = Math.sin((i / cfg.points) * Math.PI * 2 + k.length) * (volatility[k] * 0.45);
+      // shock ngẫu nhiên ~15% số điểm
+      const shock = rand() < 0.15 ? (rand() - 0.5) * volatility[k] * 1.8 : 0;
+      baseline[k] = baseline[k] * (1 + (growth[k] - 1) / cfg.points) + noise * 0.35;
+      point[k] = Math.max(20, Math.round(baseline[k] + wave + shock));
     }
     trend.push(point);
   }

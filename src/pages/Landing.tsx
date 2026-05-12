@@ -245,67 +245,6 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* DEMO PREVIEW */}
-      <section className="relative">
-        <div className="absolute inset-0 bg-secondary/20" />
-        <div className="pointer-events-none absolute inset-x-10 top-0 h-16 bg-gradient-to-b from-border/18 via-primary/5 to-transparent blur-2xl" />
-        <div className="pointer-events-none absolute inset-x-10 bottom-0 h-16 bg-gradient-to-t from-border/14 via-primary/5 to-transparent blur-2xl" />
-        <div className="container relative py-20 md:py-28">
-          <motion.div {...fadeUp} className="max-w-2xl mb-10">
-            <p className="font-mono text-xs uppercase tracking-widest text-primary mb-3">04 — Xem qua</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Hỏi bằng ngôn ngữ tự nhiên. Nhận số kèm nguồn.
-            </h2>
-          </motion.div>
-
-          <motion.div {...fadeUp} className="max-w-3xl rounded-2xl border border-border/35 bg-card/78 shadow-elevated backdrop-blur-xl overflow-hidden">
-            <div className="flex items-center gap-2 px-4 py-3 bg-secondary/25">
-              <div className="flex gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-full bg-destructive/60" />
-                <span className="h-2.5 w-2.5 rounded-full bg-accent/60" />
-                <span className="h-2.5 w-2.5 rounded-full bg-success/60" />
-              </div>
-              <span className="font-mono text-xs text-muted-foreground ml-2">ai-career-advisor / analyze</span>
-            </div>
-            <div className="px-4">
-              <div className="soft-divider" />
-            </div>
-
-            <div className="p-6 space-y-5">
-              <div className="flex justify-end">
-                <div className="max-w-[80%] rounded-2xl rounded-tr-sm bg-primary px-4 py-2.5 text-primary-foreground text-sm">
-                  Nhu cầu React Developer tại Hà Nội tuần này thay đổi thế nào?
-                </div>
-              </div>
-
-              <div className="flex gap-3">
-                <div className="h-7 w-7 shrink-0 rounded-md bg-gradient-data flex items-center justify-center">
-                  <Sparkles className="h-3.5 w-3.5 text-primary-foreground" />
-                </div>
-                <div className="flex-1 space-y-3">
-                  <p className="text-sm leading-relaxed">
-                    Tuần 16/2026, nhu cầu React Developer tại Hà Nội ghi nhận{" "}
-                    <span className="font-mono font-semibold text-foreground">~847 tin (aggregate)</span>,{" "}
-                    <span className="font-mono text-success">+12.4% so với tuần trước</span>.
-                    Mức lương trung vị: <span className="font-mono font-semibold">22–35tr</span>.
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {["topcv", "vietnamworks", "itviec"].map((s) => (
-                      <span key={s} className="text-[11px] font-mono px-2 py-0.5 rounded border border-border bg-secondary/60 text-muted-foreground">
-                        ↗ {s}
-                      </span>
-                    ))}
-                    <span className="text-[11px] font-mono px-2 py-0.5 rounded border border-border bg-secondary/60 text-muted-foreground">
-                      tổng hợp: tuần 16/2026
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* FINAL CTA */}
       <section className="relative">
         <div className="pointer-events-none absolute inset-x-10 top-0 h-16 bg-gradient-to-b from-border/18 via-primary/5 to-transparent blur-2xl" />

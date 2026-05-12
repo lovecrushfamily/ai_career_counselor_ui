@@ -45,7 +45,7 @@ export const DashboardPanel = () => {
           <div>
             <h2 className="font-display text-xl md:text-2xl font-bold tracking-tight">{t("dashboard.title")}</h2>
             <p className="text-xs text-muted-foreground mt-1 font-mono">
-              {t("analyze.demo")} · {new Date(snapshot.generatedAt).toLocaleString()}
+              {new Date(snapshot.generatedAt).toLocaleString()}
             </p>
           </div>
           <div className="flex items-center gap-3 flex-wrap">

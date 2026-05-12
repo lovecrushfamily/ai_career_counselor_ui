@@ -69,7 +69,6 @@
     "emptyTitle": "Ask about the job market",
     "emptyDesc": "Every answer comes with cited sources and a crawl date.",
     "placeholder": "Ask about skill demand, salaries, weekly shifts...",
-    "demo": "[demo aggregate — MVP]",
     "thinking": "Thinking",
     "sources": "Cited sources",
     "noSources": "No sources yet. Ask a question to see citations.",
@@ -94,7 +93,7 @@
       "topField": "Leading industry"
     },
     "platforms": "Recruitment platforms",
-    "companies": "Top trusted companies",
+    "companies": "Top verified companies",
     "industries": "Industries / Fields",
     "vs": "vs previous period",
     "share": "Share"

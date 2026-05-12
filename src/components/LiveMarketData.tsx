@@ -224,14 +224,6 @@ export const LiveMarketData = () => {
         )}
       </div>
 
-      <div className="px-4">
-        <div className="soft-divider" />
-      </div>
-      <div className="bg-secondary/15 px-4 py-2 backdrop-blur-sm">
-        <p className="text-[10px] font-mono text-muted-foreground">
-          [demo data · MVP] · Aggregate-only
-        </p>
-      </div>
     </aside>
   );
 };

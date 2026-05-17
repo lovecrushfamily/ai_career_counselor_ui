@@ -66,9 +66,8 @@ export const Navbar = () => {
   ];
 
   return (
-    <header className="glass-surface-strong sticky top-0 z-50 isolate w-full rounded-none border-x-0 border-t-0">
-      <div className="pointer-events-none absolute inset-x-6 bottom-0 h-10 bg-gradient-to-b from-border/20 via-primary/5 to-transparent blur-2xl opacity-90" />
-      <div className="container relative flex h-16 items-center">
+    <header className="sticky top-3 z-50 isolate w-full px-3 md:px-6">
+      <div className="glass-surface-strong container relative flex h-14 items-center rounded-full px-4 md:px-6">
         {/* Logo - left */}
         <Link to="/" className="flex items-center gap-2.5 group mr-12">
           <RobotLogo />
